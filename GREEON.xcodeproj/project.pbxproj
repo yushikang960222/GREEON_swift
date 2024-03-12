@@ -1,0 +1,700 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		960C523E834E35DB0A65052E /* Pods_GREEON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA181B4E1169B8218115351F /* Pods_GREEON.framework */; };
+		AB1287782B749B8200688185 /* KMView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1287772B749B8200688185 /* KMView.swift */; };
+		AB12877F2B74AE8500688185 /* track_location_btn_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = AB12877C2B74AE8400688185 /* track_location_btn_pressed.png */; };
+		AB1287802B74AE8500688185 /* track_location_btn_compass_on.png in Resources */ = {isa = PBXBuildFile; fileRef = AB12877D2B74AE8500688185 /* track_location_btn_compass_on.png */; };
+		AB1287812B74AE8500688185 /* track_location_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = AB12877E2B74AE8500688185 /* track_location_btn.png */; };
+		AB1287852B74AFAC00688185 /* map_ico_marker_direction.png in Resources */ = {isa = PBXBuildFile; fileRef = AB1287822B74AFAB00688185 /* map_ico_marker_direction.png */; };
+		AB1287862B74AFAC00688185 /* map_ico_direction_area.png in Resources */ = {isa = PBXBuildFile; fileRef = AB1287832B74AFAC00688185 /* map_ico_direction_area.png */; };
+		AB1287872B74AFAC00688185 /* map_ico_marker.png in Resources */ = {isa = PBXBuildFile; fileRef = AB1287842B74AFAC00688185 /* map_ico_marker.png */; };
+		AB1CAD8F2B850476002DB74D /* customTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1CAD8E2B850476002DB74D /* customTabbar.swift */; };
+		AB1CAD902B850476002DB74D /* customTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1CAD8D2B850476002DB74D /* customTabbarViewController.swift */; };
+		AB233C402B956FE60026855A /* joinMembership.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB233C3F2B956FE60026855A /* joinMembership.swift */; };
+		AB3C327B2B8F195F0097112D /* receiptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3C327A2B8F195F0097112D /* receiptView.swift */; };
+		AB4126012B9AFB71004F341C /* eventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4126002B9AFB71004F341C /* eventView.swift */; };
+		AB4FD9D42B76877A00C5CB56 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4FD9D32B76877A00C5CB56 /* LoginViewController.swift */; };
+		AB5ED60A2B79662800EFD177 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5ED6092B79662800EFD177 /* Extension.swift */; };
+		AB64D7A22B997F4A00F7366B /* minwonCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB64D7A12B997F4A00F7366B /* minwonCenter.swift */; };
+		AB738DAA2B86DA78004AC705 /* selectAndCharge.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB738DA92B86DA78004AC705 /* selectAndCharge.swift */; };
+		AB87AD842B84652B00C95556 /* SUITE-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = AB87AD7D2B84652B00C95556 /* SUITE-Medium.otf */; };
+		AB87AD852B84652B00C95556 /* SUITE-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = AB87AD7E2B84652B00C95556 /* SUITE-Light.otf */; };
+		AB87AD862B84652B00C95556 /* SUITE-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = AB87AD7F2B84652B00C95556 /* SUITE-Regular.otf */; };
+		AB87AD872B84652B00C95556 /* SUITE-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = AB87AD802B84652B00C95556 /* SUITE-Bold.otf */; };
+		AB87AD882B84652B00C95556 /* Outfit-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB87AD812B84652B00C95556 /* Outfit-Regular.ttf */; };
+		AB87AD892B84652B00C95556 /* SUITE-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = AB87AD822B84652B00C95556 /* SUITE-ExtraBold.otf */; };
+		AB87AD8A2B84652B00C95556 /* SUITE-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = AB87AD832B84652B00C95556 /* SUITE-SemiBold.otf */; };
+		AB87AD8C2B8465E400C95556 /* chargerCodeInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB87AD8B2B8465E400C95556 /* chargerCodeInput.swift */; };
+		AB87AD8E2B847FFA00C95556 /* chargerSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB87AD8D2B847FFA00C95556 /* chargerSelectView.swift */; };
+		AB87AD902B84929800C95556 /* chargerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB87AD8F2B84929800C95556 /* chargerInfo.swift */; };
+		AB95A5812B8D98DC00339391 /* myGreeon.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB95A5802B8D98DC00339391 /* myGreeon.swift */; };
+		AB95A5852B8DC9EE00339391 /* notiCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB95A5842B8DC9EE00339391 /* notiCenter.swift */; };
+		ABAB47EB2B77E85700AC3D20 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAB47EA2B77E85700AC3D20 /* AuthViewController.swift */; };
+		ABBE2B1F2B6B735500B232E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBE2B1E2B6B735500B232E9 /* AppDelegate.swift */; };
+		ABBE2B212B6B735500B232E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBE2B202B6B735500B232E9 /* SceneDelegate.swift */; };
+		ABBE2B262B6B735500B232E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABBE2B242B6B735500B232E9 /* Main.storyboard */; };
+		ABBE2B282B6B735600B232E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABBE2B272B6B735600B232E9 /* Assets.xcassets */; };
+		ABBE2B2B2B6B735600B232E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABBE2B292B6B735600B232E9 /* LaunchScreen.storyboard */; };
+		ABBE2B352B6B737700B232E9 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBE2B332B6B737700B232E9 /* Home.swift */; };
+		ABBE2B372B6B73B600B232E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBE2B362B6B73B600B232E9 /* ViewController.swift */; };
+		ABCE3FBC2B70AE72005165CE /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCE3FBB2B70AE72005165CE /* QRCodeViewController.swift */; };
+		ABE1D7772B6B7B4100342B21 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE1D7762B6B7B4100342B21 /* MapViewController.swift */; };
+		ABE62A562B8C83EA002B0FB6 /* settingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE62A552B8C83EA002B0FB6 /* settingsView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		31147537AC07B74E830BFF68 /* Pods-GREEON.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GREEON.debug.xcconfig"; path = "Target Support Files/Pods-GREEON/Pods-GREEON.debug.xcconfig"; sourceTree = "<group>"; };
+		4379818CDACE4C8871289FE8 /* Pods-GREEON.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GREEON.release.xcconfig"; path = "Target Support Files/Pods-GREEON/Pods-GREEON.release.xcconfig"; sourceTree = "<group>"; };
+		AB1287772B749B8200688185 /* KMView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMView.swift; sourceTree = "<group>"; };
+		AB12877C2B74AE8400688185 /* track_location_btn_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = track_location_btn_pressed.png; sourceTree = "<group>"; };
+		AB12877D2B74AE8500688185 /* track_location_btn_compass_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = track_location_btn_compass_on.png; sourceTree = "<group>"; };
+		AB12877E2B74AE8500688185 /* track_location_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = track_location_btn.png; sourceTree = "<group>"; };
+		AB1287822B74AFAB00688185 /* map_ico_marker_direction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_ico_marker_direction.png; sourceTree = "<group>"; };
+		AB1287832B74AFAC00688185 /* map_ico_direction_area.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_ico_direction_area.png; sourceTree = "<group>"; };
+		AB1287842B74AFAC00688185 /* map_ico_marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_ico_marker.png; sourceTree = "<group>"; };
+		AB1CAD8D2B850476002DB74D /* customTabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customTabbarViewController.swift; sourceTree = "<group>"; };
+		AB1CAD8E2B850476002DB74D /* customTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customTabbar.swift; sourceTree = "<group>"; };
+		AB233C3F2B956FE60026855A /* joinMembership.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = joinMembership.swift; sourceTree = "<group>"; };
+		AB3C327A2B8F195F0097112D /* receiptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = receiptView.swift; sourceTree = "<group>"; };
+		AB4126002B9AFB71004F341C /* eventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventView.swift; sourceTree = "<group>"; };
+		AB4FD9D32B76877A00C5CB56 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		AB5D1CFE2B9837570094BF75 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AB5D1CFF2B9837570094BF75 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AB5ED6092B79662800EFD177 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		AB64D7A12B997F4A00F7366B /* minwonCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = minwonCenter.swift; sourceTree = "<group>"; };
+		AB64D7A52B998F4100F7366B /* ko */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ko; path = ko.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AB64D7A62B998F4100F7366B /* ko */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ko; path = ko.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AB738DA92B86DA78004AC705 /* selectAndCharge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectAndCharge.swift; sourceTree = "<group>"; };
+		AB87AD7D2B84652B00C95556 /* SUITE-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUITE-Medium.otf"; sourceTree = "<group>"; };
+		AB87AD7E2B84652B00C95556 /* SUITE-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUITE-Light.otf"; sourceTree = "<group>"; };
+		AB87AD7F2B84652B00C95556 /* SUITE-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUITE-Regular.otf"; sourceTree = "<group>"; };
+		AB87AD802B84652B00C95556 /* SUITE-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUITE-Bold.otf"; sourceTree = "<group>"; };
+		AB87AD812B84652B00C95556 /* Outfit-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Outfit-Regular.ttf"; sourceTree = "<group>"; };
+		AB87AD822B84652B00C95556 /* SUITE-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUITE-ExtraBold.otf"; sourceTree = "<group>"; };
+		AB87AD832B84652B00C95556 /* SUITE-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUITE-SemiBold.otf"; sourceTree = "<group>"; };
+		AB87AD8B2B8465E400C95556 /* chargerCodeInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chargerCodeInput.swift; sourceTree = "<group>"; };
+		AB87AD8D2B847FFA00C95556 /* chargerSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chargerSelectView.swift; sourceTree = "<group>"; };
+		AB87AD8F2B84929800C95556 /* chargerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chargerInfo.swift; sourceTree = "<group>"; };
+		AB95A5802B8D98DC00339391 /* myGreeon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myGreeon.swift; sourceTree = "<group>"; };
+		AB95A5842B8DC9EE00339391 /* notiCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notiCenter.swift; sourceTree = "<group>"; };
+		ABAB47EA2B77E85700AC3D20 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		ABBE2B1B2B6B735500B232E9 /* GREEON.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GREEON.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABBE2B1E2B6B735500B232E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		ABBE2B202B6B735500B232E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		ABBE2B272B6B735600B232E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ABBE2B2C2B6B735600B232E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ABBE2B332B6B737700B232E9 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		ABBE2B362B6B73B600B232E9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		ABCE3FBB2B70AE72005165CE /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
+		ABCE3FBF2B70D5F6005165CE /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
+		ABCE3FC12B70D5FB005165CE /* ContactsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ContactsUI.framework; path = System/Library/Frameworks/ContactsUI.framework; sourceTree = SDKROOT; };
+		ABE1D7762B6B7B4100342B21 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		ABE62A552B8C83EA002B0FB6 /* settingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsView.swift; sourceTree = "<group>"; };
+		FA181B4E1169B8218115351F /* Pods_GREEON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GREEON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ABBE2B182B6B735500B232E9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				960C523E834E35DB0A65052E /* Pods_GREEON.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6A87FB54F61207695EC31C06 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				31147537AC07B74E830BFF68 /* Pods-GREEON.debug.xcconfig */,
+				4379818CDACE4C8871289FE8 /* Pods-GREEON.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		942E2140B86B8A643CD0A2B6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ABCE3FC12B70D5FB005165CE /* ContactsUI.framework */,
+				ABCE3FBF2B70D5F6005165CE /* Contacts.framework */,
+				FA181B4E1169B8218115351F /* Pods_GREEON.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AB1287742B749A3000688185 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				AB1287772B749B8200688185 /* KMView.swift */,
+				ABE1D7762B6B7B4100342B21 /* MapViewController.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		AB12877B2B74AE6000688185 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AB1287832B74AFAC00688185 /* map_ico_direction_area.png */,
+				AB1287822B74AFAB00688185 /* map_ico_marker_direction.png */,
+				AB1287842B74AFAC00688185 /* map_ico_marker.png */,
+				AB12877D2B74AE8500688185 /* track_location_btn_compass_on.png */,
+				AB12877C2B74AE8400688185 /* track_location_btn_pressed.png */,
+				AB12877E2B74AE8500688185 /* track_location_btn.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		AB2143422B85098E00C08FE9 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				AB1CAD8D2B850476002DB74D /* customTabbarViewController.swift */,
+				AB1CAD8E2B850476002DB74D /* customTabbar.swift */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		AB2143432B85099E00C08FE9 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				ABAB47EA2B77E85700AC3D20 /* AuthViewController.swift */,
+				ABBE2B362B6B73B600B232E9 /* ViewController.swift */,
+				AB4FD9D32B76877A00C5CB56 /* LoginViewController.swift */,
+				ABBE2B332B6B737700B232E9 /* Home.swift */,
+				ABCE3FBB2B70AE72005165CE /* QRCodeViewController.swift */,
+				AB95A5802B8D98DC00339391 /* myGreeon.swift */,
+				AB3C327A2B8F195F0097112D /* receiptView.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		AB2143442B8509CA00C08FE9 /* subScreen */ = {
+			isa = PBXGroup;
+			children = (
+				AB233C3F2B956FE60026855A /* joinMembership.swift */,
+				AB4126002B9AFB71004F341C /* eventView.swift */,
+				AB64D7A12B997F4A00F7366B /* minwonCenter.swift */,
+				AB87AD8D2B847FFA00C95556 /* chargerSelectView.swift */,
+				AB87AD8F2B84929800C95556 /* chargerInfo.swift */,
+				AB87AD8B2B8465E400C95556 /* chargerCodeInput.swift */,
+				AB738DA92B86DA78004AC705 /* selectAndCharge.swift */,
+				ABE62A552B8C83EA002B0FB6 /* settingsView.swift */,
+				AB95A5842B8DC9EE00339391 /* notiCenter.swift */,
+			);
+			path = subScreen;
+			sourceTree = "<group>";
+		};
+		AB2143452B8509EC00C08FE9 /* delegate */ = {
+			isa = PBXGroup;
+			children = (
+				ABBE2B1E2B6B735500B232E9 /* AppDelegate.swift */,
+				ABBE2B202B6B735500B232E9 /* SceneDelegate.swift */,
+			);
+			path = delegate;
+			sourceTree = "<group>";
+		};
+		AB87AD7C2B8464FD00C95556 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				AB87AD812B84652B00C95556 /* Outfit-Regular.ttf */,
+				AB87AD802B84652B00C95556 /* SUITE-Bold.otf */,
+				AB87AD822B84652B00C95556 /* SUITE-ExtraBold.otf */,
+				AB87AD7E2B84652B00C95556 /* SUITE-Light.otf */,
+				AB87AD7D2B84652B00C95556 /* SUITE-Medium.otf */,
+				AB87AD7F2B84652B00C95556 /* SUITE-Regular.otf */,
+				AB87AD832B84652B00C95556 /* SUITE-SemiBold.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		ABA69E072B987D9100F8CBF1 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				AB5ED6092B79662800EFD177 /* Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		ABBE2B122B6B735500B232E9 = {
+			isa = PBXGroup;
+			children = (
+				ABBE2B1D2B6B735500B232E9 /* GREEON */,
+				ABBE2B1C2B6B735500B232E9 /* Products */,
+				6A87FB54F61207695EC31C06 /* Pods */,
+				942E2140B86B8A643CD0A2B6 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		ABBE2B1C2B6B735500B232E9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ABBE2B1B2B6B735500B232E9 /* GREEON.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ABBE2B1D2B6B735500B232E9 /* GREEON */ = {
+			isa = PBXGroup;
+			children = (
+				AB87AD7C2B8464FD00C95556 /* Fonts */,
+				AB12877B2B74AE6000688185 /* Resources */,
+				ABA69E072B987D9100F8CBF1 /* Extension */,
+				AB2143452B8509EC00C08FE9 /* delegate */,
+				AB2143432B85099E00C08FE9 /* Screen */,
+				AB2143442B8509CA00C08FE9 /* subScreen */,
+				AB2143422B85098E00C08FE9 /* Tabbar */,
+				AB1287742B749A3000688185 /* Map */,
+				ABBE2B242B6B735500B232E9 /* Main.storyboard */,
+				ABBE2B272B6B735600B232E9 /* Assets.xcassets */,
+				ABBE2B292B6B735600B232E9 /* LaunchScreen.storyboard */,
+				ABBE2B2C2B6B735600B232E9 /* Info.plist */,
+			);
+			path = GREEON;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ABBE2B1A2B6B735500B232E9 /* GREEON */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ABBE2B2F2B6B735600B232E9 /* Build configuration list for PBXNativeTarget "GREEON" */;
+			buildPhases = (
+				EA6AB28AC481EC97D0D34B2E /* [CP] Check Pods Manifest.lock */,
+				ABBE2B172B6B735500B232E9 /* Sources */,
+				ABBE2B182B6B735500B232E9 /* Frameworks */,
+				ABBE2B192B6B735500B232E9 /* Resources */,
+				464E2ACE3644F63B8AC74DAB /* [CP] Embed Pods Frameworks */,
+				1649C53671C5731D0E8DC5B9 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GREEON;
+			packageProductDependencies = (
+			);
+			productName = GREEON;
+			productReference = ABBE2B1B2B6B735500B232E9 /* GREEON.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ABBE2B132B6B735500B232E9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					ABBE2B1A2B6B735500B232E9 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+				};
+			};
+			buildConfigurationList = ABBE2B162B6B735500B232E9 /* Build configuration list for PBXProject "GREEON" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = ko;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				ko,
+				en,
+			);
+			mainGroup = ABBE2B122B6B735500B232E9;
+			packageReferences = (
+			);
+			productRefGroup = ABBE2B1C2B6B735500B232E9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ABBE2B1A2B6B735500B232E9 /* GREEON */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ABBE2B192B6B735500B232E9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABBE2B2B2B6B735600B232E9 /* LaunchScreen.storyboard in Resources */,
+				AB87AD862B84652B00C95556 /* SUITE-Regular.otf in Resources */,
+				AB1287852B74AFAC00688185 /* map_ico_marker_direction.png in Resources */,
+				ABBE2B282B6B735600B232E9 /* Assets.xcassets in Resources */,
+				AB87AD882B84652B00C95556 /* Outfit-Regular.ttf in Resources */,
+				AB12877F2B74AE8500688185 /* track_location_btn_pressed.png in Resources */,
+				AB87AD852B84652B00C95556 /* SUITE-Light.otf in Resources */,
+				AB87AD892B84652B00C95556 /* SUITE-ExtraBold.otf in Resources */,
+				AB1287812B74AE8500688185 /* track_location_btn.png in Resources */,
+				AB87AD842B84652B00C95556 /* SUITE-Medium.otf in Resources */,
+				AB87AD872B84652B00C95556 /* SUITE-Bold.otf in Resources */,
+				AB1287862B74AFAC00688185 /* map_ico_direction_area.png in Resources */,
+				ABBE2B262B6B735500B232E9 /* Main.storyboard in Resources */,
+				AB1287872B74AFAC00688185 /* map_ico_marker.png in Resources */,
+				AB1287802B74AE8500688185 /* track_location_btn_compass_on.png in Resources */,
+				AB87AD8A2B84652B00C95556 /* SUITE-SemiBold.otf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1649C53671C5731D0E8DC5B9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GREEON/Pods-GREEON-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GREEON/Pods-GREEON-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GREEON/Pods-GREEON-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		464E2ACE3644F63B8AC74DAB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GREEON/Pods-GREEON-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GREEON/Pods-GREEON-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GREEON/Pods-GREEON-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EA6AB28AC481EC97D0D34B2E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GREEON-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ABBE2B172B6B735500B232E9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB4FD9D42B76877A00C5CB56 /* LoginViewController.swift in Sources */,
+				AB4126012B9AFB71004F341C /* eventView.swift in Sources */,
+				ABBE2B1F2B6B735500B232E9 /* AppDelegate.swift in Sources */,
+				AB87AD8C2B8465E400C95556 /* chargerCodeInput.swift in Sources */,
+				AB95A5812B8D98DC00339391 /* myGreeon.swift in Sources */,
+				ABBE2B212B6B735500B232E9 /* SceneDelegate.swift in Sources */,
+				AB1CAD8F2B850476002DB74D /* customTabbar.swift in Sources */,
+				ABBE2B372B6B73B600B232E9 /* ViewController.swift in Sources */,
+				AB738DAA2B86DA78004AC705 /* selectAndCharge.swift in Sources */,
+				AB64D7A22B997F4A00F7366B /* minwonCenter.swift in Sources */,
+				AB87AD8E2B847FFA00C95556 /* chargerSelectView.swift in Sources */,
+				AB1287782B749B8200688185 /* KMView.swift in Sources */,
+				AB5ED60A2B79662800EFD177 /* Extension.swift in Sources */,
+				AB1CAD902B850476002DB74D /* customTabbarViewController.swift in Sources */,
+				AB3C327B2B8F195F0097112D /* receiptView.swift in Sources */,
+				AB233C402B956FE60026855A /* joinMembership.swift in Sources */,
+				AB87AD902B84929800C95556 /* chargerInfo.swift in Sources */,
+				AB95A5852B8DC9EE00339391 /* notiCenter.swift in Sources */,
+				ABE1D7772B6B7B4100342B21 /* MapViewController.swift in Sources */,
+				ABAB47EB2B77E85700AC3D20 /* AuthViewController.swift in Sources */,
+				ABE62A562B8C83EA002B0FB6 /* settingsView.swift in Sources */,
+				ABCE3FBC2B70AE72005165CE /* QRCodeViewController.swift in Sources */,
+				ABBE2B352B6B737700B232E9 /* Home.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		ABBE2B242B6B735500B232E9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB5D1CFE2B9837570094BF75 /* en */,
+				AB64D7A52B998F4100F7366B /* ko */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		ABBE2B292B6B735600B232E9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB5D1CFF2B9837570094BF75 /* en */,
+				AB64D7A62B998F4100F7366B /* ko */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ABBE2B2D2B6B735600B232E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		ABBE2B2E2B6B735600B232E9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ABBE2B302B6B735600B232E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31147537AC07B74E830BFF68 /* Pods-GREEON.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 3BY6Q9JP9A;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = /Users/yushikang/GREEON_Swift_UIKit/GREEON/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = GREEON;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "(선택) GREEON이 주변 충전소 QR스캔을 위해 카메라를 이용하고자 합니다.";
+				INFOPLIST_KEY_NSContactsUsageDescription = "(필수) GREEON이 전화번호로 직접 전화걸기 위해 전화를 이용하고자 합니다.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "(필수) GREEON이 주변 충전소 확인을 위해 항상 현재 위치를 수집하고자 합니다.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "(필수) GREEON이 주변 충전소 확인을 위해 항상 현재 위치를 수집하고자 합니다.";
+				INFOPLIST_KEY_NSLocationUsageDescription = "(필수) GREEON이 주변 충전소 확인을 위해 현재 위치를 수집하고자 합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "(필수) GREEON이 앱을 실행 중일 때 주변 충전소 확인을 위해 항상 현재 위치를 수집하고자 합니다.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "(선택) GREEON으로 촬영한 사진을 보관하기 위해 사진 라이브러리를 이용하고자 합니다.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "(선택) GREEON이 고장신고 등을 위해 사진 라이브러리를 이용하고자 합니다.";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.greencube.GREEON;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		ABBE2B312B6B735600B232E9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4379818CDACE4C8871289FE8 /* Pods-GREEON.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3BY6Q9JP9A;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = /Users/yushikang/GREEON_Swift_UIKit/GREEON/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = GREEON;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "(선택) GREEON이 주변 충전소 QR스캔을 위해 카메라를 이용하고자 합니다.";
+				INFOPLIST_KEY_NSContactsUsageDescription = "(필수) GREEON이 전화번호로 직접 전화걸기 위해 전화를 이용하고자 합니다.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "(필수) GREEON이 주변 충전소 확인을 위해 항상 현재 위치를 수집하고자 합니다.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "(필수) GREEON이 주변 충전소 확인을 위해 항상 현재 위치를 수집하고자 합니다.";
+				INFOPLIST_KEY_NSLocationUsageDescription = "(필수) GREEON이 주변 충전소 확인을 위해 현재 위치를 수집하고자 합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "(필수) GREEON이 앱을 실행 중일 때 주변 충전소 확인을 위해 항상 현재 위치를 수집하고자 합니다.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "(선택) GREEON으로 촬영한 사진을 보관하기 위해 사진 라이브러리를 이용하고자 합니다.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "(선택) GREEON이 고장신고 등을 위해 사진 라이브러리를 이용하고자 합니다.";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.greencube.GREEON;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ABBE2B162B6B735500B232E9 /* Build configuration list for PBXProject "GREEON" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABBE2B2D2B6B735600B232E9 /* Debug */,
+				ABBE2B2E2B6B735600B232E9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ABBE2B2F2B6B735600B232E9 /* Build configuration list for PBXNativeTarget "GREEON" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABBE2B302B6B735600B232E9 /* Debug */,
+				ABBE2B312B6B735600B232E9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ABBE2B132B6B735500B232E9 /* Project object */;
+}

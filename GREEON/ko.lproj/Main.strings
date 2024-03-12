@@ -1,0 +1,60 @@
+
+/* Class = "UITextField"; placeholder = "비밀번호"; ObjectID = "11z-A5-5ut"; */
+"11z-A5-5ut.placeholder" = "비밀번호";
+
+/* Class = "UILabel"; text = "(카메라 권한이 허용되어 있어야 합니다.)"; ObjectID = "BDe-V1-EvF"; */
+"BDe-V1-EvF.text" = "(카메라 권한이 허용되어 있어야 합니다.)";
+
+/* Class = "UILabel"; text = "카메라를 QR코드를 향해 비춰주세요."; ObjectID = "BJH-4y-Z6K"; */
+"BJH-4y-Z6K.text" = "카메라를 QR코드를 향해 비춰주세요.";
+
+/* Class = "UITabBarItem"; title = "홈"; ObjectID = "F8P-j8-2Df"; */
+"F8P-j8-2Df.title" = "홈";
+
+/* Class = "UILabel"; text = "QR코드를 스캔합니다."; ObjectID = "KoU-1H-wNi"; */
+"KoU-1H-wNi.text" = "QR코드를 스캔합니다.";
+
+/* Class = "UITabBarItem"; title = "충전소 찾기"; ObjectID = "M3y-Sw-RJq"; */
+"M3y-Sw-RJq.title" = "충전소 찾기";
+
+/* Class = "UIButton"; configuration.title = "충전기 번호 직접 입력"; ObjectID = "UR9-zP-VUK"; */
+"UR9-zP-VUK.configuration.title" = "충전기 번호 직접 입력";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "UR9-zP-VUK"; */
+"UR9-zP-VUK.normalTitle" = "Button";
+
+/* Class = "UITabBarItem"; title = "이용내역"; ObjectID = "UpC-J4-WnI"; */
+"UpC-J4-WnI.title" = "이용내역";
+
+/* Class = "UIButton"; configuration.title = "로그인"; ObjectID = "XoE-3I-JWp"; */
+"XoE-3I-JWp.configuration.title" = "로그인";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "XoE-3I-JWp"; */
+"XoE-3I-JWp.normalTitle" = "Button";
+
+/* Class = "UITextField"; placeholder = "이메일"; ObjectID = "ZWs-Xa-cgG"; */
+"ZWs-Xa-cgG.placeholder" = "이메일";
+
+/* Class = "UITabBarItem"; title = "나의 그리온"; ObjectID = "h5h-ne-Mbi"; */
+"h5h-ne-Mbi.title" = "나의 그리온";
+
+/* Class = "UIButton"; configuration.title = "회원가입"; ObjectID = "oGh-MY-bZG"; */
+"oGh-MY-bZG.configuration.title" = "회원가입";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "oGh-MY-bZG"; */
+"oGh-MY-bZG.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "비밀번호 찾기"; ObjectID = "tov-2L-HZc"; */
+"tov-2L-HZc.configuration.title" = "비밀번호 찾기";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "tov-2L-HZc"; */
+"tov-2L-HZc.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "이메일 찾기"; ObjectID = "xQJ-Y3-b6d"; */
+"xQJ-Y3-b6d.configuration.title" = "이메일 찾기";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "xQJ-Y3-b6d"; */
+"xQJ-Y3-b6d.normalTitle" = "Button";
+
+/* Class = "UITextField"; placeholder = "충전소를 입력해주세요."; ObjectID = "z4w-RK-pDP"; */
+"z4w-RK-pDP.placeholder" = "충전소를 입력해주세요.";

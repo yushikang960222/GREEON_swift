@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>KAKAO_APP_KEY</key>
+	<string>0de8a531b5c4d3e16d4f2a78477baff6</string>
+	<key>KAKAO_PHASE</key>
+	<string></string>
+	<key>NMFClientId</key>
+	<string>67a1cep2ef</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>Privacy - Contacts Usage Description</key>
+		<string>(필수) GREEON이 전화번호로 직접 전화걸기 위해 전화를 이용하고자 합니다.</string>
+	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Outfit-Regular.otf</string>
+		<string>SUITE-Light.otf</string>
+		<string>SUITE-Regular.otf</string>
+		<string>SUITE-Medium.otf</string>
+		<string>SUITE-Bold.otf</string>
+		<string>SUITE-SemiBold.otf</string>
+		<string>SUITE-ExtraBold.otf</string>
+		<string>SUITE-Heavy.otf</string>
+	</array>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<false/>
+		<key>UISceneConfigurations</key>
+		<dict>
+			<key>UIWindowSceneSessionRoleApplication</key>
+			<array>
+				<dict>
+					<key>UISceneConfigurationName</key>
+					<string>Default Configuration</string>
+					<key>UISceneDelegateClassName</key>
+					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
+					<key>UISceneStoryboardFile</key>
+					<string>Main</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
+</dict>
+</plist>
