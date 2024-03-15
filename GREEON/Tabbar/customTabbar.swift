@@ -67,3 +67,19 @@ class CustomTabBar: UITabBar {
     return nil
   }
 }
+
+extension CustomTabBar: UITabBarControllerDelegate {
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    if let tabBarController = self.delegate as? UITabBarController {
+      tabBarController.delegate = self
+    }
+  }
+  
+  func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+    if let index = tabBarController.viewControllers?.firstIndex(of: viewController) {
+      UIImpactFeedbackGenerator(style: .medium).impactOccurred() // 햅틱 피드백
+    }
+  }
+}
+

@@ -23,14 +23,14 @@ class EventViewModel: ObservableObject {
   
   func fetchData() {
     isLoading = true
-    // Alamofire로 구현, 실제 API 응답 데이터를 eventInfos에 할당해야함
+    // Alamofire로 구현, 실제 API 응답 데이터를 아래에 할당해야함
     
     // 아래는 더미데이터임. api 연결 후 대체해야함
     self.eventInfos = [
-      eventInfo(title: "제목제목",
-                infotxt: "내용내용어쩌구저쩌구이러쿵저러쿵",
-                date: "날짜날짜",
-                status: "상태상태"
+      eventInfo(title: "제목제목", // 여기
+                infotxt: "내용내용어쩌구저쩌구이러쿵저러쿵", //여기
+                date: "날짜날짜", // 여기
+                status: "상태상태" // 여기
                )
     ]
     isLoading = false

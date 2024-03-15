@@ -14,7 +14,6 @@ struct chargerCodeInputWrapper: UIViewControllerRepresentable {
     let chargerCodeInputController = UIHostingController(rootView: chargerCodeInput())
     return chargerCodeInputController
   }
-  
   func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
   }
 }
@@ -24,7 +23,6 @@ struct receiptViewWrapper: UIViewControllerRepresentable {
     let receiptViewController = UIHostingController(rootView: receiptView())
     return receiptViewController
   }
-  
   func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
   }
 }
@@ -36,7 +34,9 @@ struct myGreeon: View {
   @State private var isreceiptViewPresented = false
   @State private var isminwonCenterPresented = false
   @State private var iseventViewPresented = false
-
+  @State private var showAlert = false
+  @State private var islogoutPresented = false
+  
   var body: some View {
     ZStack{
       VStack{
@@ -275,10 +275,27 @@ struct myGreeon: View {
                     .font(.custom("SUITE-Medium", size: 16))
                     .foregroundColor(Color(hex: 0x545860))
                 }
-                Spacer().frame(height: 100)
+                Spacer().frame(height: 50)
               }
               Spacer()
             }
+            Button(action: {
+              self.showAlert = true
+            }) {
+              Text("로그아웃")
+                .font(.custom("SUITE-Medium", size: 16))
+                .foregroundColor(Color(hex: 0x545860))
+                .underline()
+            }
+            .alert(isPresented: $showAlert) {
+              Alert(title: Text("로그아웃"), message: Text("정말 로그아웃 하시겠습니까?"), primaryButton: .destructive(Text("로그아웃")) {
+                islogoutPresented.toggle()
+              }, secondaryButton: .cancel(Text("취소")))
+            }
+            Spacer().frame(height: 100)
+          }
+          .fullScreenCover(isPresented: $islogoutPresented) {
+              loginView()
           }
         }
       }

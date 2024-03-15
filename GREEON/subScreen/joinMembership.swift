@@ -383,6 +383,9 @@ struct joinMembership: View {
         Spacer().frame(width: 14)
       }
     }
+    .onTapGesture {
+      UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
   }
   func performSignUp() {
     // 필수 정보 누락 여부 확인
@@ -414,7 +417,7 @@ struct WebView: UIViewRepresentable {
   }
   
   func updateUIView(_ uiView: WKWebView, context: Context) {
-    let url = URL(string: "https://www.greeon.co.kr") // 카카오주소검색 페이지로 연결
+    let url = URL(string: "https://www.google.com") // 카카오주소검색 페이지로 연결
     let request = URLRequest(url: url!)
     uiView.load(request)
   }
@@ -437,7 +440,7 @@ struct WebView: UIViewRepresentable {
       configuration.userContentController = contentController
       
       let webView = WKWebView(frame: .zero, configuration: configuration)
-      parent.selectedAddress = "https://www.greeon.co.kr"
+      parent.selectedAddress = ""
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
