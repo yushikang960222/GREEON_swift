@@ -36,7 +36,6 @@ struct myGreeon: View {
   @State private var iseventViewPresented = false
   @State private var showAlert = false
   @State private var islogoutPresented = false
-  @State private var isnoticeAndfaqPresented = false
   
   var body: some View {
     ZStack{
@@ -196,15 +195,12 @@ struct myGreeon: View {
                   .foregroundColor(Color(hex: 0xa0a0a0))
                 Spacer().frame(height: 30)
                 Button(action: {
-                  isnoticeAndfaqPresented.toggle()
+                  // 버튼 선택시
                 }) {
                   Text("공지사항&FAQ")
                     .font(.custom("SUITE-Medium", size: 16))
                     .foregroundColor(Color(hex: 0x545860))
                 }
-                .fullScreenCover(isPresented: $isnoticeAndfaqPresented, content: {
-                  noticeAndfaq()
-                })
                 Spacer().frame(height: 30)
                 Button(action: {
                   iseventViewPresented.toggle()

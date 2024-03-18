@@ -55,8 +55,6 @@
 		31147537AC07B74E830BFF68 /* Pods-GREEON.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GREEON.debug.xcconfig"; path = "Target Support Files/Pods-GREEON/Pods-GREEON.debug.xcconfig"; sourceTree = "<group>"; };
 		4379818CDACE4C8871289FE8 /* Pods-GREEON.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GREEON.release.xcconfig"; path = "Target Support Files/Pods-GREEON/Pods-GREEON.release.xcconfig"; sourceTree = "<group>"; };
 		AB0EFD712BA3D6B200D4CAFE /* loginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginView.swift; sourceTree = "<group>"; };
-		AB0EFD732BA4379500D4CAFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		AB0EFD742BA4379500D4CAFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB1287772B749B8200688185 /* KMView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMView.swift; sourceTree = "<group>"; };
 		AB12877C2B74AE8400688185 /* track_location_btn_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = track_location_btn_pressed.png; sourceTree = "<group>"; };
 		AB12877D2B74AE8500688185 /* track_location_btn_compass_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = track_location_btn_compass_on.png; sourceTree = "<group>"; };
@@ -73,6 +71,8 @@
 		AB5D1CFF2B9837570094BF75 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB5ED6092B79662800EFD177 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		AB64D7A12B997F4A00F7366B /* minwonCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = minwonCenter.swift; sourceTree = "<group>"; };
+		AB64D7A52B998F4100F7366B /* ko */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ko; path = ko.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AB64D7A62B998F4100F7366B /* ko */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ko; path = ko.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB6ABA242BA2DA1600A7F6FC /* noticeAndfaq.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = noticeAndfaq.swift; sourceTree = "<group>"; };
 		AB738DA92B86DA78004AC705 /* selectAndCharge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectAndCharge.swift; sourceTree = "<group>"; };
 		AB87AD7D2B84652B00C95556 /* SUITE-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUITE-Medium.otf"; sourceTree = "<group>"; };
@@ -313,7 +313,6 @@
 			knownRegions = (
 				ko,
 				en,
-				Base,
 			);
 			mainGroup = ABBE2B122B6B735500B232E9;
 			packageReferences = (
@@ -452,7 +451,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				AB5D1CFE2B9837570094BF75 /* en */,
-				AB0EFD732BA4379500D4CAFE /* Base */,
+				AB64D7A52B998F4100F7366B /* ko */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -461,7 +460,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				AB5D1CFF2B9837570094BF75 /* en */,
-				AB0EFD742BA4379500D4CAFE /* Base */,
+				AB64D7A62B998F4100F7366B /* ko */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
