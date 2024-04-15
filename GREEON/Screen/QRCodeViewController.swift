@@ -123,7 +123,6 @@ class QRCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     
-    // 추가된 부분: 뷰가 사라질 때 알림 활성화 플래그 초기화
     isPermissionActive = false
   }
   

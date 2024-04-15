@@ -36,6 +36,8 @@ struct myGreeon: View {
   @State private var iseventViewPresented = false
   @State private var showAlert = false
   @State private var islogoutPresented = false
+  @State private var isnoticeAndfaqPresented = false
+  @State private var isinquiryPresented = false
   
   var body: some View {
     ZStack{
@@ -81,6 +83,7 @@ struct myGreeon: View {
                 
                 Button(action: {
                   isnotiCenterPresented.toggle()
+                  HapticManager.instance.impact(style: .rigid)
                 }) {
                   RoundedRectangle(cornerRadius: 10)
                     .frame(width: min(geometry.size.width / 3.5, 200), height: min(geometry.size.width / 3.5, 200))
@@ -107,6 +110,7 @@ struct myGreeon: View {
                 Spacer()
                 Button(action: {
                   // 버튼이 클릭되었을 때 동작
+                  HapticManager.instance.impact(style: .rigid)
                 }) {
                   RoundedRectangle(cornerRadius: 10)
                     .frame(width: min(geometry.size.width / 3.5, 200), height: min(geometry.size.width / 3.5, 200))
@@ -130,6 +134,7 @@ struct myGreeon: View {
                 Spacer()
                 Button(action: {
                   issettingsViewPresented.toggle()
+                  HapticManager.instance.impact(style: .rigid)
                 }) {
                   RoundedRectangle(cornerRadius: 10)
                     .frame(width: min(geometry.size.width / 3.5, 200), height: min(geometry.size.width / 3.5, 200))
@@ -166,6 +171,7 @@ struct myGreeon: View {
                 Spacer().frame(height: 30)
                 Button(action: {
                   isChargerCodeInputPresented.toggle()
+                  HapticManager.instance.impact(style: .rigid)
                 }) {
                   Text("충전기 번호로 찾기")
                     .font(.custom("SUITE-Medium", size: 16))
@@ -181,6 +187,7 @@ struct myGreeon: View {
                 Spacer().frame(height: 30)
                 Button(action: {
                   isreceiptViewPresented.toggle()
+                  HapticManager.instance.impact(style: .rigid)
                 }) {
                   Text("나의 이용내역")
                     .font(.custom("SUITE-Medium", size: 16))
@@ -195,15 +202,20 @@ struct myGreeon: View {
                   .foregroundColor(Color(hex: 0xa0a0a0))
                 Spacer().frame(height: 30)
                 Button(action: {
-                  // 버튼 선택시
+                  isnoticeAndfaqPresented.toggle()
+                  HapticManager.instance.impact(style: .rigid)
                 }) {
                   Text("공지사항&FAQ")
                     .font(.custom("SUITE-Medium", size: 16))
                     .foregroundColor(Color(hex: 0x545860))
                 }
+                .fullScreenCover(isPresented: $isnoticeAndfaqPresented, content: {
+                  noticeAndfaq()
+                })
                 Spacer().frame(height: 30)
                 Button(action: {
                   iseventViewPresented.toggle()
+                  HapticManager.instance.impact(style: .rigid)
                 }) {
                   Text("이벤트")
                     .font(.custom("SUITE-Medium", size: 16))
@@ -214,15 +226,20 @@ struct myGreeon: View {
                 })
                 Spacer().frame(height: 30)
                 Button(action: {
-                  // 버튼 선택시
+                  isinquiryPresented.toggle()
+                  HapticManager.instance.impact(style: .rigid)
                 }) {
                   Text("1:1문의")
                     .font(.custom("SUITE-Medium", size: 16))
                     .foregroundColor(Color(hex: 0x545860))
                 }
+                .fullScreenCover(isPresented: $isinquiryPresented, content: {
+                  inquiry()
+                })
                 Spacer().frame(height: 30)
                 Button(action: {
                   // 버튼 선택시
+                  HapticManager.instance.impact(style: .rigid)
                 }) {
                   Text("고장신고")
                     .font(.custom("SUITE-Medium", size: 16))
@@ -231,6 +248,7 @@ struct myGreeon: View {
                 Spacer().frame(height: 30)
                 Button(action: {
                   // 버튼 선택시
+                  HapticManager.instance.impact(style: .rigid)
                 }) {
                   Text("충전기설치신청")
                     .font(.custom("SUITE-Medium", size: 16))
@@ -239,6 +257,7 @@ struct myGreeon: View {
                 Spacer().frame(height: 30)
                 Button(action: {
                   isminwonCenterPresented.toggle()
+                  HapticManager.instance.impact(style: .rigid)
                 }) {
                   Text("불편민원신고센터")
                     .font(.custom("SUITE-Medium", size: 16))
@@ -254,6 +273,7 @@ struct myGreeon: View {
                 Spacer().frame(height: 30)
                 Button(action: {
                   // 버튼 선택시
+                  HapticManager.instance.impact(style: .rigid)
                 }) {
                   Text("GREEON 소개")
                     .font(.custom("SUITE-Medium", size: 16))
@@ -262,6 +282,7 @@ struct myGreeon: View {
                 Spacer().frame(height: 30)
                 Button(action: {
                   // 버튼 선택시
+                  HapticManager.instance.impact(style: .rigid)
                 }) {
                   Text("통합서비스이용약관")
                     .font(.custom("SUITE-Medium", size: 16))
@@ -270,6 +291,7 @@ struct myGreeon: View {
                 Spacer().frame(height: 30)
                 Button(action: {
                   // 버튼 선택시
+                  HapticManager.instance.impact(style: .rigid)
                 }) {
                   Text("개인정보처리방침")
                     .font(.custom("SUITE-Medium", size: 16))
@@ -288,10 +310,14 @@ struct myGreeon: View {
                 .underline()
             }
             .alert(isPresented: $showAlert) {
-              Alert(title: Text("로그아웃"), message: Text("정말 로그아웃 하시겠습니까?"), primaryButton: .destructive(Text("로그아웃")) {
-                islogoutPresented.toggle()
-              }, secondaryButton: .cancel(Text("취소")))
+                HapticManager.instance.notification(type: .error)
+                return Alert(title: Text("로그아웃"), message: Text("\n정말 로그아웃 하시겠습니까?"), primaryButton: .destructive(Text("로그아웃")) {
+                        islogoutPresented.toggle()
+                    },
+                    secondaryButton: .cancel(Text("취소"))
+                )
             }
+
             Spacer().frame(height: 100)
           }
           .fullScreenCover(isPresented: $islogoutPresented) {

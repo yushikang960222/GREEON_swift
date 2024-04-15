@@ -78,7 +78,7 @@ extension CustomTabBar: UITabBarControllerDelegate {
   
   func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
     if let index = tabBarController.viewControllers?.firstIndex(of: viewController) {
-      UIImpactFeedbackGenerator(style: .medium).impactOccurred() // 햅틱 피드백
+      UIImpactFeedbackGenerator(style: .rigid).impactOccurred() // 햅틱 피드백
     }
   }
 }

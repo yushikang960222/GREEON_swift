@@ -109,6 +109,7 @@ struct joinMembership: View {
   @State private var showAlert: Bool = false
   @State private var alertTitle: String = ""
   @State private var alertMessage: String = ""
+  @State private var joinCompleteViewPresented = false
   
   //  @State private var mapApiData: String =
   
@@ -116,14 +117,15 @@ struct joinMembership: View {
     ZStack {
       VStack(alignment: .leading) {
         Spacer().frame(height: 15)
+        HStack{
+          Spacer().frame(width: 14)
         Button(action: {
           presentationMode.wrappedValue.dismiss()
+          HapticManager.instance.notification(type: .success)
         }) {
-          HStack{
-            Spacer().frame(width: 14)
             Image("back")
-            Spacer()
           }
+          Spacer()
         }
         Spacer().frame(height: 23)
         HStack{
@@ -158,6 +160,7 @@ struct joinMembership: View {
               .font(.custom("SUITE-Regular", size: 16))
             Button(action: {
               // 버튼이 클릭되었을 때 수행할 동작
+              HapticManager.instance.impact(style: .rigid)
               print("인증받기버튼")
             }) {
               HStack{
@@ -196,6 +199,7 @@ struct joinMembership: View {
               .font(.custom("SUITE-Regular", size: 16))
             Button(action: {
               // 버튼이 클릭되었을 때 수행할 동작
+              HapticManager.instance.impact(style: .rigid)
               print("인증확인버튼")
             }) {
               HStack{
@@ -275,6 +279,7 @@ struct joinMembership: View {
             .disabled(true)
             Button(action: {
               isShowingWeb.toggle()
+              HapticManager.instance.impact(style: .rigid)
               print("주소찾기 버튼")
             }) {
               HStack{
@@ -363,6 +368,7 @@ struct joinMembership: View {
             Spacer()
             Button(action: {
               self.performSignUp()
+              HapticManager.instance.impact(style: .rigid)
             }) {
               HStack {
                 Text("회원가입")
@@ -386,24 +392,25 @@ struct joinMembership: View {
     .onTapGesture {
       UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
+    .fullScreenCover(isPresented: $joinCompleteViewPresented, content: {
+      joinComplete()
+    })
   }
   func performSignUp() {
-    // 필수 정보 누락 여부 확인
-    guard !viewModel.userEmail.isEmpty,
-          !viewModel.userPassword.isEmpty,
-          !viewModel.confirmPassword.isEmpty,
-          let selectedAddress = selectedAddress,
-          !selectedAddress.isEmpty,
-          !userAddress.isEmpty else {
-      // 누락된 정보가 있을 경우, 알림 표시
-      alertTitle = "필수입력 항목 누락"
-      alertMessage = "\n기본정보 중 누락된 항목이 있습니다.\n누락된 항목 없이 입력해주세요.\n"
-      showAlert.toggle()
-      return
-    }
-    
-    // 여기에서 회원가입 로직 수행
-    
+      guard !viewModel.userEmail.isEmpty,
+            !viewModel.userPassword.isEmpty,
+            !viewModel.confirmPassword.isEmpty,
+            let selectedAddress = selectedAddress,
+            !selectedAddress.isEmpty,
+            !userAddress.isEmpty else {
+          alertTitle = "필수입력 항목 누락"
+          alertMessage = "\n기본정보 중 누락된 항목이 있습니다.\n누락된 항목 없이 입력해주세요.\n"
+          showAlert.toggle()
+          HapticManager.instance.notification(type: .error)
+          return
+      }
+    joinCompleteViewPresented.toggle()
+      HapticManager.instance.notification(type: .success)
   }
 }
 
@@ -440,7 +447,7 @@ struct WebView: UIViewRepresentable {
       configuration.userContentController = contentController
       
       let webView = WKWebView(frame: .zero, configuration: configuration)
-      parent.selectedAddress = ""
+      parent.selectedAddress = "어쩌구저쩌구"
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
@@ -455,10 +462,6 @@ struct WebView: UIViewRepresentable {
   }
 }
 
-#Preview {
-  joinMembership()
-}
-
 class joinMembershipViewController: UIHostingController<joinMembership> {
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder, rootView: joinMembership())
@@ -468,4 +471,68 @@ class joinMembershipViewController: UIHostingController<joinMembership> {
     super.viewDidLoad()
     
   }
+}
+
+struct joinComplete: View {
+  @State private var mainViewPresented = false
+  
+  var body: some View {
+    VStack{
+      Spacer()
+      HStack{
+        Spacer().frame(width: 14)
+        VStack(alignment: .leading){
+          Image("logo")
+            .resizable()
+            .frame(width: 192, height: 36)
+          Spacer().frame(height: 60)
+          Text("회원가입이 정상적으로 완료되었습니다.")
+            .font(.custom("SUITE-Regular", size: 16))
+            .foregroundColor(Color(hex: 0x545860))
+          HStack{
+            Text("이제부터")
+              .font(.custom("SUITE-Regular", size: 16))
+              .foregroundColor(Color(hex: 0x545860))
+            Spacer().frame(width: 5)
+            Text("쉽고 빠른 충전생활")
+              .font(.custom("SUITE-Bold", size: 16))
+              .foregroundColor(Color(hex: 0x00ab84))
+            Text("을 누려보세요.")
+              .font(.custom("SUITE-Regular", size: 16))
+              .foregroundColor(Color(hex: 0x545860))
+          }
+        }
+        Spacer()
+      }
+      Spacer()
+      VStack{
+        HStack{
+          Spacer()
+          Button(action: {
+            mainViewPresented.toggle()
+            HapticManager.instance.impact(style: .rigid)
+          }) {
+            HStack {
+              Text("시작하기")
+                .font(.custom("SUITE-Regular", size: 16))
+              Image("next_available")
+            }
+          }
+          .fullScreenCover(isPresented: $mainViewPresented, content: {
+            Home()
+          })
+          Spacer().frame(width: 14)
+        }
+        Spacer().frame(height: 40)
+      }
+    }
+  }
+}
+
+#Preview {
+  joinMembership()
+}
+
+#Preview {
+  joinComplete()
 }

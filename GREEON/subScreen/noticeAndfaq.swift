@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 //import Alamofire
 
 //class NoticeViewModel: ObservableObject {
@@ -53,22 +54,71 @@ import SwiftUI
 //  }
 //}
 
-class NoticeViewModel: ObservableObject {
-  @Published var notices: [String] = []
-  @Published var faqs: [String] = []
+class noticeAndFaqViewModel: ObservableObject {
+  @Published var notices: [Notice] = []
+  @Published var faqs: [FAQ] = []
+  @Published var isDataLoaded: Bool = false
+  private var cancellables: Set<AnyCancellable> = []
   
   init() {
+    fetchData()
+  }
+  
+  func fetchData() {
     fetchNotice()
+      .sink { [weak self] notices in
+        self?.notices = notices
+        self?.isDataLoaded = true
+      }
+      .store(in: &cancellables)
+    
     fetchFAQs()
+      .sink { [weak self] faqs in
+        self?.faqs = faqs
+        self?.isDataLoaded = true
+      }
+      .store(in: &cancellables)
   }
   
-  func fetchNotice() {
-    self.notices = ["공지사항 내용 1", "공지사항 내용 2", "공지사항 내용 3"]
+  func fetchNotice() -> AnyPublisher<[Notice], Never> {
+    return Future<[Notice], Never> { promise in
+      DispatchQueue.main.asyncAfter(deadline: .now() + 0) {
+        let notices = [
+          Notice(title: "공지사항 1", content: "내용내용 1"),
+          Notice(title: "공지사항 2", content: "내용내용 2"),
+          Notice(title: "공지사항 3", content: "내용내용 3")
+        ]
+        promise(.success(notices))
+      }
+    }
+    .eraseToAnyPublisher()
   }
   
-  func fetchFAQs() {
-    self.faqs = ["FAQ 내용 1", "FAQ 내용 2", "FAQ 내용 3"]
+  func fetchFAQs() -> AnyPublisher<[FAQ], Never> {
+    return Future<[FAQ], Never> { promise in
+      DispatchQueue.main.asyncAfter(deadline: .now() + 0) {
+        let faqs = [
+          FAQ(title: "FAQ 1", content: "내용내용 11111"),
+          FAQ(title: "FAQ 2", content: "내용내용 22222"),
+          FAQ(title: "FAQ 3", content: "내용내용 33333")
+        ]
+        promise(.success(faqs))
+      }
+    }
+    .eraseToAnyPublisher()
   }
+}
+
+struct Notice: Identifiable {
+  var id = UUID()
+  var title: String
+  var content: String
+}
+
+struct FAQ: Identifiable {
+  var id = UUID()
+  var title: String
+  var content: String
 }
 
 struct noticeAndfaq: View {
@@ -76,9 +126,9 @@ struct noticeAndfaq: View {
   @State private var selCategory: Category = .notice // 기본 선택 카테고리
   @State private var notices: [String] = []
   @State private var faqs: [String] = []
-  @State private var isNoticeDetailViewPresented = false
-  @State private var isFAQDetailViewPresented = false
-  @ObservedObject var viewModel = NoticeViewModel() // @ObservedObject로 변경
+  @ObservedObject var viewModel = noticeAndFaqViewModel() // @ObservedObject로 변경
+  @State private var isDetailPresented = false // 단일 세부 사항 표시
+  @State private var selectedItem: String = "" // 선택된 항목
   
   enum Category {
     case notice
@@ -88,14 +138,15 @@ struct noticeAndfaq: View {
   var body: some View {
     VStack(alignment: .leading) {
       Spacer().frame(height: 15)
+      HStack{
+        Spacer().frame(width: 14)
       Button(action: {
         presentationMode.wrappedValue.dismiss()
+        HapticManager.instance.notification(type: .success)
       }) {
-        HStack{
-          Spacer().frame(width: 14)
           Image("back")
-          Spacer()
         }
+        Spacer()
       }
       Spacer().frame(height: 23)
       HStack{
@@ -124,80 +175,79 @@ struct noticeAndfaq: View {
           Spacer().frame(height: 20)
           switch selCategory {
             case .notice:
-              ForEach(viewModel.notices, id: \.self) { notice in
-                HStack{
-                  Spacer().frame(width: 20)
-                  Button(action: {
-                    // 공지사항 버튼이 클릭되었을 때 수행할 동작
-                    self.showNoticeDetail(notice: notice)
-                  }) {
-                    HStack{
-                      Text(notice)
-                        .font(.custom("SUITE-Regular", size: 16))
-                        .foregroundColor(Color(hex: 0x545860))
-                      Spacer()
-                      Image("arrowRightAlt")
-                        .frame(height: 50)
+              if viewModel.isDataLoaded {
+                ForEach(viewModel.notices) { notice in
+                  HStack{
+                    Spacer().frame(width: 20)
+                    Button(action: {
+                      self.selectedItem = notice.title
+                      self.isDetailPresented = true
+                      HapticManager.instance.impact(style: .rigid)
+                    }) {
+                      VStack{
+                        HStack{
+                          Text(notice.title)
+                            .font(.custom("SUITE-Regular", size: 16))
+                            .foregroundColor(Color(hex: 0x545860))
+                          Spacer()
+                          Image("arrowRightAlt")
+                        }
+                        .frame(height: 60)
+                      }
                     }
+                    Spacer().frame(width: 20)
                   }
-                  Spacer().frame(width: 20)
                 }
+              } else {
+                Text("데이터를 로드 중입니다...").padding()
               }
             case .faq:
-              ForEach(viewModel.faqs, id: \.self) { faq in
-                HStack{
-                  Spacer().frame(width: 20)
-                  Button(action: {
-                    // FAQ 버튼이 클릭되었을 때 수행할 동작
-                    self.showFAQDetail(faq: faq)
-                  }) {
-                    HStack{
-                      Text(faq)
-                        .font(.custom("SUITE-Regular", size: 16))
-                        .foregroundColor(Color(hex: 0x545860))
-                      Spacer()
-                      Image("arrowRightAlt")
-                        .frame(height: 50)
+              if viewModel.isDataLoaded {
+                ForEach(viewModel.faqs) { faq in
+                  HStack{
+                    Spacer().frame(width: 20)
+                    Button(action: {
+                      self.selectedItem = faq.title
+                      self.isDetailPresented = true
+                      HapticManager.instance.impact(style: .rigid)
+                    }) {
+                      VStack{
+                        HStack{
+                          Text(faq.title)
+                            .font(.custom("SUITE-Regular", size: 16))
+                            .foregroundColor(Color(hex: 0x545860))
+                          Spacer()
+                          Image("arrowRightAlt")
+                        }
+                        .frame(height: 60)
+                      }
                     }
+                    Spacer().frame(width: 20)
                   }
-                  Spacer().frame(width: 20)
                 }
+              } else {
+                Text("데이터를 로드 중입니다...").padding()
               }
           }
         }
       }
     }
+    .fullScreenCover(isPresented: $isDetailPresented) {
+      if selCategory == .notice {
+        NoticeDetailView(notice: viewModel.notices.first(where: { $0.title == selectedItem }) ?? Notice(title: "", content: ""))
+      } else {
+        faqDetailView(FaqDetail: viewModel.faqs.first(where: { $0.title == selectedItem }) ?? FAQ(title: "", content: ""))
+      }
+    }
     .onAppear {
-      self.viewModel.fetchNotice()
+      self.viewModel.fetchData()
     }
-    .fullScreenCover(isPresented: $isNoticeDetailViewPresented) {
-      if let Notice = viewModel.notices.first {
-        NoticeDetailView(notice: Notice)
-      } else {
-        EmptyView()
-      }
-    }
-    .fullScreenCover(isPresented: $isFAQDetailViewPresented) {
-      if let FAQView = viewModel.faqs.first {
-        faqDetailView(FaqDetail: FAQView)
-      } else {
-        EmptyView()
-      }
-    }
-  }
-  
-  func showNoticeDetail(notice: String) {
-    isNoticeDetailViewPresented = true
-  }
-  
-  func showFAQDetail(faq: String) {
-    isFAQDetailViewPresented = true
   }
 }
 
 struct NoticeDetailView: View {
   @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-  let notice: String
+  let notice: Notice
   
   var body: some View {
     ZStack{
@@ -206,6 +256,7 @@ struct NoticeDetailView: View {
           Spacer().frame(height: 15)
           Button(action: {
             presentationMode.wrappedValue.dismiss()
+            HapticManager.instance.notification(type: .success)
           }) {
             HStack{
               Spacer().frame(width: 14)
@@ -216,7 +267,7 @@ struct NoticeDetailView: View {
           Spacer().frame(height: 23)
           HStack{
             Spacer().frame(width: 14)
-            Text(notice)
+            Text(notice.title)
               .font(.custom("SUITE-Bold", size: 24))
             Spacer()
           }
@@ -224,11 +275,17 @@ struct NoticeDetailView: View {
         }
         .background(Color.white)
         .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 5)
-        VStack{
-          Spacer().frame(height: 30)
-          Text(notice)
-            .font(.custom("SUITE-Regular", size: 16))
-            .foregroundColor(Color(hex: 0x545860))
+        ScrollView(showsIndicators: false){
+          VStack{
+            Spacer().frame(height: 30)
+            HStack{
+              Spacer().frame(width: 14)
+              Text(notice.content)
+                .font(.custom("SUITE-Regular", size: 16))
+                .foregroundColor(Color(hex: 0x545860))
+              Spacer()
+            }
+          }
         }
         Spacer()
       }
@@ -238,7 +295,7 @@ struct NoticeDetailView: View {
 
 struct faqDetailView: View {
   @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-  let FaqDetail: String
+  let FaqDetail: FAQ
   
   var body: some View {
     ZStack{
@@ -247,6 +304,7 @@ struct faqDetailView: View {
           Spacer().frame(height: 15)
           Button(action: {
             presentationMode.wrappedValue.dismiss()
+            HapticManager.instance.notification(type: .success)
           }) {
             HStack{
               Spacer().frame(width: 14)
@@ -257,7 +315,7 @@ struct faqDetailView: View {
           Spacer().frame(height: 23)
           HStack{
             Spacer().frame(width: 14)
-            Text(FaqDetail)
+            Text(FaqDetail.title)
               .font(.custom("SUITE-Bold", size: 24))
             Spacer()
           }
@@ -265,11 +323,17 @@ struct faqDetailView: View {
         }
         .background(Color.white)
         .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 5)
-        VStack{
-          Spacer().frame(height: 30)
-          Text(FaqDetail)
-            .font(.custom("SUITE-Regular", size: 16))
-            .foregroundColor(Color(hex: 0x545860))
+        ScrollView(showsIndicators: false){
+          VStack{
+            Spacer().frame(height: 30)
+            HStack{
+              Spacer().frame(width: 14)
+              Text(FaqDetail.content)
+                .font(.custom("SUITE-Regular", size: 16))
+                .foregroundColor(Color(hex: 0x545860))
+              Spacer()
+            }
+          }
         }
         Spacer()
       }

@@ -102,6 +102,7 @@ struct loginView: View {
         Spacer().frame(width: 14)
         Button(action: {
           loginButtonAction()
+          HapticManager.instance.impact(style: .rigid)
         }) {
           HStack {
             Text("로그인")
@@ -129,6 +130,7 @@ struct loginView: View {
             Spacer()
             Button(action: {
               isAuthViewPresented.toggle()
+              HapticManager.instance.impact(style: .rigid)
             }) {
               HStack {
                 Text("회원가입")
@@ -151,6 +153,7 @@ struct loginView: View {
             Spacer()
             Button(action: {
               // 버튼 선택시
+              HapticManager.instance.impact(style: .rigid)
             }) {
               Text("이메일 찾기")
                 .font(.custom("SUITE-Bold", size: 16))
@@ -166,6 +169,7 @@ struct loginView: View {
             Spacer()
             Button(action: {
               // 버튼 선택시
+              HapticManager.instance.impact(style: .rigid)
             }) {
               Text("비밀번호 찾기")
                 .font(.custom("SUITE-Bold", size: 16))
@@ -178,7 +182,9 @@ struct loginView: View {
       Spacer().frame(height: 30)
     }
     .alert(isPresented: $showAlert) {
-      Alert(title: Text("로그인 오류"), message: Text(alertMessage), dismissButton: .cancel(Text("확인")))
+      HapticManager.instance.notification(type: .error)
+      return Alert(
+      title: Text("로그인 오류"), message: Text(alertMessage), dismissButton: .cancel(Text("확인")))
     }
     .fullScreenCover(isPresented: $isMainViewPresented) {
       MainViewControllerWrapper()
@@ -207,6 +213,7 @@ struct loginView: View {
       alertMessage = "\n잘못된 비밀번호입니다.\n다시 확인해주세요."
     } else {
       isMainViewPresented = true
+      HapticManager.instance.notification(type: .success)
     }
   }
 }

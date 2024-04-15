@@ -21,6 +21,10 @@
 		AB233C402B956FE60026855A /* joinMembership.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB233C3F2B956FE60026855A /* joinMembership.swift */; };
 		AB3C327B2B8F195F0097112D /* receiptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3C327A2B8F195F0097112D /* receiptView.swift */; };
 		AB4126012B9AFB71004F341C /* eventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4126002B9AFB71004F341C /* eventView.swift */; };
+		AB4A660B2BAAA60500752566 /* imagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4A660A2BAAA60500752566 /* imagePicker.swift */; };
+		AB4A660D2BAAA63100752566 /* camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4A660C2BAAA63100752566 /* camera.swift */; };
+		AB4A662B2BAAAC7300752566 /* importFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4A662A2BAAAC7300752566 /* importFile.swift */; };
+		AB56561C2BA97C2C008311D1 /* inquiry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB56561B2BA97C2C008311D1 /* inquiry.swift */; };
 		AB5ED60A2B79662800EFD177 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5ED6092B79662800EFD177 /* Extension.swift */; };
 		AB64D7A22B997F4A00F7366B /* minwonCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB64D7A12B997F4A00F7366B /* minwonCenter.swift */; };
 		AB6ABA252BA2DA1600A7F6FC /* noticeAndfaq.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6ABA242BA2DA1600A7F6FC /* noticeAndfaq.swift */; };
@@ -55,6 +59,8 @@
 		31147537AC07B74E830BFF68 /* Pods-GREEON.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GREEON.debug.xcconfig"; path = "Target Support Files/Pods-GREEON/Pods-GREEON.debug.xcconfig"; sourceTree = "<group>"; };
 		4379818CDACE4C8871289FE8 /* Pods-GREEON.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GREEON.release.xcconfig"; path = "Target Support Files/Pods-GREEON/Pods-GREEON.release.xcconfig"; sourceTree = "<group>"; };
 		AB0EFD712BA3D6B200D4CAFE /* loginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginView.swift; sourceTree = "<group>"; };
+		AB0EFD732BA4379500D4CAFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AB0EFD742BA4379500D4CAFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB1287772B749B8200688185 /* KMView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMView.swift; sourceTree = "<group>"; };
 		AB12877C2B74AE8400688185 /* track_location_btn_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = track_location_btn_pressed.png; sourceTree = "<group>"; };
 		AB12877D2B74AE8500688185 /* track_location_btn_compass_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = track_location_btn_compass_on.png; sourceTree = "<group>"; };
@@ -67,12 +73,14 @@
 		AB233C3F2B956FE60026855A /* joinMembership.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = joinMembership.swift; sourceTree = "<group>"; };
 		AB3C327A2B8F195F0097112D /* receiptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = receiptView.swift; sourceTree = "<group>"; };
 		AB4126002B9AFB71004F341C /* eventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventView.swift; sourceTree = "<group>"; };
+		AB4A660A2BAAA60500752566 /* imagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imagePicker.swift; sourceTree = "<group>"; };
+		AB4A660C2BAAA63100752566 /* camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = camera.swift; sourceTree = "<group>"; };
+		AB4A662A2BAAAC7300752566 /* importFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = importFile.swift; sourceTree = "<group>"; };
+		AB56561B2BA97C2C008311D1 /* inquiry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inquiry.swift; sourceTree = "<group>"; };
 		AB5D1CFE2B9837570094BF75 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AB5D1CFF2B9837570094BF75 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB5ED6092B79662800EFD177 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		AB64D7A12B997F4A00F7366B /* minwonCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = minwonCenter.swift; sourceTree = "<group>"; };
-		AB64D7A52B998F4100F7366B /* ko */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ko; path = ko.lproj/Main.storyboard; sourceTree = "<group>"; };
-		AB64D7A62B998F4100F7366B /* ko */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ko; path = ko.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB6ABA242BA2DA1600A7F6FC /* noticeAndfaq.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = noticeAndfaq.swift; sourceTree = "<group>"; };
 		AB738DA92B86DA78004AC705 /* selectAndCharge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectAndCharge.swift; sourceTree = "<group>"; };
 		AB87AD7D2B84652B00C95556 /* SUITE-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUITE-Medium.otf"; sourceTree = "<group>"; };
@@ -193,6 +201,7 @@
 				AB738DA92B86DA78004AC705 /* selectAndCharge.swift */,
 				ABE62A552B8C83EA002B0FB6 /* settingsView.swift */,
 				AB95A5842B8DC9EE00339391 /* notiCenter.swift */,
+				AB56561B2BA97C2C008311D1 /* inquiry.swift */,
 			);
 			path = subScreen;
 			sourceTree = "<group>";
@@ -224,6 +233,9 @@
 			isa = PBXGroup;
 			children = (
 				AB5ED6092B79662800EFD177 /* Extension.swift */,
+				AB4A660A2BAAA60500752566 /* imagePicker.swift */,
+				AB4A660C2BAAA63100752566 /* camera.swift */,
+				AB4A662A2BAAAC7300752566 /* importFile.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -313,6 +325,7 @@
 			knownRegions = (
 				ko,
 				en,
+				Base,
 			);
 			mainGroup = ABBE2B122B6B735500B232E9;
 			packageReferences = (
@@ -420,9 +433,12 @@
 				AB4126012B9AFB71004F341C /* eventView.swift in Sources */,
 				AB0EFD722BA3D6B200D4CAFE /* loginView.swift in Sources */,
 				ABBE2B1F2B6B735500B232E9 /* AppDelegate.swift in Sources */,
+				AB4A660D2BAAA63100752566 /* camera.swift in Sources */,
 				AB87AD8C2B8465E400C95556 /* chargerCodeInput.swift in Sources */,
 				AB95A5812B8D98DC00339391 /* myGreeon.swift in Sources */,
+				AB56561C2BA97C2C008311D1 /* inquiry.swift in Sources */,
 				ABBE2B212B6B735500B232E9 /* SceneDelegate.swift in Sources */,
+				AB4A660B2BAAA60500752566 /* imagePicker.swift in Sources */,
 				AB1CAD8F2B850476002DB74D /* customTabbar.swift in Sources */,
 				ABBE2B372B6B73B600B232E9 /* ViewController.swift in Sources */,
 				AB738DAA2B86DA78004AC705 /* selectAndCharge.swift in Sources */,
@@ -432,6 +448,7 @@
 				AB5ED60A2B79662800EFD177 /* Extension.swift in Sources */,
 				AB1CAD902B850476002DB74D /* customTabbarViewController.swift in Sources */,
 				AB3C327B2B8F195F0097112D /* receiptView.swift in Sources */,
+				AB4A662B2BAAAC7300752566 /* importFile.swift in Sources */,
 				AB233C402B956FE60026855A /* joinMembership.swift in Sources */,
 				AB87AD902B84929800C95556 /* chargerInfo.swift in Sources */,
 				AB95A5852B8DC9EE00339391 /* notiCenter.swift in Sources */,
@@ -451,7 +468,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				AB5D1CFE2B9837570094BF75 /* en */,
-				AB64D7A52B998F4100F7366B /* ko */,
+				AB0EFD732BA4379500D4CAFE /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -460,7 +477,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				AB5D1CFF2B9837570094BF75 /* en */,
-				AB64D7A62B998F4100F7366B /* ko */,
+				AB0EFD742BA4379500D4CAFE /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -605,7 +622,7 @@
 				INFOPLIST_FILE = /Users/yushikang/GREEON_Swift_UIKit/GREEON/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = GREEON;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
-				INFOPLIST_KEY_NSCameraUsageDescription = "(선택) GREEON이 주변 충전소 QR스캔을 위해 카메라를 이용하고자 합니다.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "(선택) GREEON이 주변 충전소 QR스캔 및 1:1문의 시 사진촬영을 위해 카메라를 이용하고자 합니다.";
 				INFOPLIST_KEY_NSContactsUsageDescription = "(필수) GREEON이 전화번호로 직접 전화걸기 위해 전화를 이용하고자 합니다.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "(필수) GREEON이 주변 충전소 확인을 위해 항상 현재 위치를 수집하고자 합니다.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "(필수) GREEON이 주변 충전소 확인을 위해 항상 현재 위치를 수집하고자 합니다.";
@@ -650,7 +667,7 @@
 				INFOPLIST_FILE = /Users/yushikang/GREEON_Swift_UIKit/GREEON/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = GREEON;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
-				INFOPLIST_KEY_NSCameraUsageDescription = "(선택) GREEON이 주변 충전소 QR스캔을 위해 카메라를 이용하고자 합니다.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "(선택) GREEON이 주변 충전소 QR스캔 및 1:1문의 시 사진촬영을 위해 카메라를 이용하고자 합니다.";
 				INFOPLIST_KEY_NSContactsUsageDescription = "(필수) GREEON이 전화번호로 직접 전화걸기 위해 전화를 이용하고자 합니다.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "(필수) GREEON이 주변 충전소 확인을 위해 항상 현재 위치를 수집하고자 합니다.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "(필수) GREEON이 주변 충전소 확인을 위해 항상 현재 위치를 수집하고자 합니다.";

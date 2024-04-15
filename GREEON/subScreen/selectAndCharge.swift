@@ -86,7 +86,7 @@ struct selectAndCharge: View {
   }
   func getCurrentTime() -> String {
     let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "HH:mm분 "
+    dateFormatter.dateFormat = "HH:mm분"
     return dateFormatter.string(from: Date())
   }
 }

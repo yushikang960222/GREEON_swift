@@ -45,14 +45,14 @@ struct minwonCenter: View {
     ZStack{
       VStack(alignment: .leading) {
         Spacer().frame(height: 15)
+        HStack{
+          Spacer().frame(width: 14)
         Button(action: {
           presentationMode.wrappedValue.dismiss()
         }) {
-          HStack{
-            Spacer().frame(width: 14)
             Image("back")
-            Spacer()
           }
+          Spacer()
         }
         Spacer().frame(height: 23)
         HStack{

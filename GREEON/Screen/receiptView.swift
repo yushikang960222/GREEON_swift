@@ -58,7 +58,7 @@ struct receiptView: View {
           Spacer().frame(width: 0)
           DatePicker(selection: $searchStartDate, in: ...Date(), displayedComponents: .date) {
           }
-          Spacer().frame(width: .infinity) // 프레임 치수가 정확하지 않은것 같다고 떠도 상관 없음 (UI상 보여주는거에 대해 문제 없음)
+          Spacer().frame(maxWidth: .infinity) // 프레임 치수가 정확하지 않은것 같다고 떠도 상관 없음 (UI상 보여주는거에 대해 문제 없음)
           Text("종료날짜")
             .font(.custom("SUITE-Bold", size: 14))
             .foregroundColor(Color(hex: 0x0069cb))

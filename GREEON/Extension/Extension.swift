@@ -11,7 +11,7 @@ import SwiftUI
 
 extension CATransition {
   func segueFromBottom() -> CATransition {
-    duration = 0.375 //set the duration to whatever you'd like.
+    duration = 0.375 // 전환속도 변경
     timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
     type = .moveIn
     subtype = .fromTop
@@ -19,7 +19,7 @@ extension CATransition {
   }
   
   func segueFromTop() -> CATransition {
-    duration = 0.375 //set the duration to whatever you'd like.
+    duration = 0.375 // 전환속도 변경
     timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
     type = .moveIn
     subtype = .fromBottom
@@ -27,7 +27,7 @@ extension CATransition {
   }
   
   func segueFromLeft() -> CATransition {
-    duration = 0.1 //set the duration to whatever you'd like.
+    duration = 0.1 // 전환속도 변경
     timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
     type = .moveIn
     subtype = .fromLeft
@@ -35,7 +35,7 @@ extension CATransition {
   }
   
   func popFromRight() -> CATransition {
-    duration = 0.1 //set the duration to whatever you'd like.
+    duration = 0.1 // 전환속도 변경
     timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
     type = .reveal
     subtype = .fromRight
@@ -43,7 +43,7 @@ extension CATransition {
   }
   
   func popFromLeft() -> CATransition {
-    duration = 0.1 //set the duration to whatever you'd like.
+    duration = 0.1 // 전환속도 변경
     timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
     type = .reveal
     subtype = .fromLeft
@@ -71,4 +71,16 @@ extension Color {
             opacity: alpha
         )
     }
+}
+
+class HapticManager {
+  static let instance = HapticManager()
+  func notification(type: UINotificationFeedbackGenerator.FeedbackType) {
+    let generator = UINotificationFeedbackGenerator()
+    generator.notificationOccurred(type)
+  }
+  func impact(style: UIImpactFeedbackGenerator.FeedbackStyle) {
+    let generator = UIImpactFeedbackGenerator(style: style)
+    generator.impactOccurred()
+  }
 }

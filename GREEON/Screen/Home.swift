@@ -10,6 +10,8 @@ import SwiftUI
 struct Home: View {
   @State var index = 0
   @State var circlePosition: CGFloat = 0
+  @State private var isnoticeAndfaqPresented = false
+  @State private var isinquiryPresented = false
   
   var body: some View {
     ZStack{
@@ -189,6 +191,7 @@ struct Home: View {
                     
                     Button(action: {
                       // 버튼이 클릭되었을 때 동작
+                      HapticManager.instance.impact(style: .rigid)
                     }) {
                       RoundedRectangle(cornerRadius: 10)
                         .stroke(Color(hex: 0xd1d1d1), lineWidth: 1)
@@ -212,6 +215,7 @@ struct Home: View {
                     Spacer()
                     Button(action: {
                       // 버튼이 클릭되었을 때 동작
+                      HapticManager.instance.impact(style: .rigid)
                     }) {
                       RoundedRectangle(cornerRadius: 10)
                         .stroke(Color(hex: 0x545860), lineWidth: 1)
@@ -232,7 +236,8 @@ struct Home: View {
                     Spacer()
                     VStack(alignment:.leading, spacing: 10) {
                       Button(action: {
-                        // 첫 번째 직사각형 버튼 클릭 시 동작
+                        isnoticeAndfaqPresented.toggle()
+                        HapticManager.instance.impact(style: .rigid)
                       }) {
                         RoundedRectangle(cornerRadius: 10)
                           .stroke(Color(hex: 0xef3346), lineWidth: 1)
@@ -243,15 +248,19 @@ struct Home: View {
                               Spacer().frame(width: 22)
                               Image("notice")
                               Spacer()
-                              Text("공지사항")
+                              Text("공지사항&FAQ")
                                 .font(.custom("SUITE-Medium", size: 16))
                               Spacer()
                             }
                               .foregroundColor(Color(hex: 0x545860))
                           )
                       }
+                      .fullScreenCover(isPresented: $isnoticeAndfaqPresented, content: {
+                        noticeAndfaq()
+                      })
                       Button(action: {
-                        // 두 번째 직사각형 버튼 클릭 시 동작
+                        isinquiryPresented.toggle()
+                        HapticManager.instance.impact(style: .rigid)
                       }) {
                         RoundedRectangle(cornerRadius: 10)
                           .stroke(Color(hex: 0xff9800), lineWidth: 1)
@@ -262,13 +271,16 @@ struct Home: View {
                               Spacer().frame(width: 22)
                               Image("support")
                               Spacer()
-                              Text("FAQ")
+                              Text("1:1문의")
                                 .font(.custom("SUITE-Medium", size: 16))
                               Spacer()
                             }
                               .foregroundColor(Color(hex: 0x545860))
                           )
                       }
+                      .fullScreenCover(isPresented: $isinquiryPresented, content: {
+                        inquiry()
+                      })
                     }
                     Spacer()
                   }
@@ -295,7 +307,6 @@ class HomeViewController: UIHostingController<Home> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // 추가적인 설정이 필요하다면 여기에서 수행
     }
 }
 

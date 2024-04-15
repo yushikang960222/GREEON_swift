@@ -10,6 +10,7 @@ import SwiftUI
 struct settingsView: View {
   @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
   
+  @State var switchLocationAllowToggle = true
   @State var switchPushAlertToggle = true
   @State var switchPushMarketingToggle = true
   @State var switchAutoLoginToggle = false
@@ -18,14 +19,15 @@ struct settingsView: View {
     VStack{
       VStack(alignment: .leading) {
         Spacer().frame(height: 15)
+        HStack{
+          Spacer().frame(width: 14)
         Button(action: {
           presentationMode.wrappedValue.dismiss()
+          HapticManager.instance.notification(type: .success)
         }) {
-          HStack{
-            Spacer().frame(width: 14)
             Image("back")
-            Spacer()
           }
+          Spacer()
         }
         Spacer().frame(height: 23)
         HStack{
@@ -42,9 +44,13 @@ struct settingsView: View {
       HStack{
         Spacer().frame(width: 14)
         VStack(alignment: .leading){
-          Text("알림 설정")
+          Text("위치서비스 및 알림")
             .font(.custom("SUITE-ExtraBold", size: 20))
             .foregroundColor(Color(hex: 0xa0a0a0))
+          Spacer().frame(height: 30)
+          Toggle("위치기반 서비스 이용 동의", isOn: $switchLocationAllowToggle)
+            .font(.custom("SUITE-Regular", size: 16))
+            .toggleStyle(SwitchToggleStyle(tint: Color(hex: 0x00ab84)))
           Spacer().frame(height: 30)
           Toggle("푸시 알림", isOn: $switchPushAlertToggle)
             .font(.custom("SUITE-Regular", size: 16))
@@ -52,7 +58,7 @@ struct settingsView: View {
           Spacer().frame(height: 30)
           Toggle("이벤트 및 혜택 알림", isOn: $switchPushMarketingToggle)
             .font(.custom("SUITE-Regular", size: 16))
-            .toggleStyle(SwitchToggleStyle(tint: Color(hex: 0x428fec)))
+            .toggleStyle(SwitchToggleStyle(tint: Color(hex: 0x0069cb)))
           Spacer().frame(height: 40)
           Text("로그인")
             .font(.custom("SUITE-ExtraBold", size: 20))
