@@ -8,7 +8,6 @@
 import SwiftUI
 import UIKit
 
-// UIKit으로 래핑한 SwiftUI 컨트롤러 생성
 struct chargerCodeInputWrapper: UIViewControllerRepresentable {
   func makeUIViewController(context: Context) -> UIViewController {
     let chargerCodeInputController = UIHostingController(rootView: chargerCodeInput())
@@ -38,6 +37,7 @@ struct myGreeon: View {
   @State private var islogoutPresented = false
   @State private var isnoticeAndfaqPresented = false
   @State private var isinquiryPresented = false
+  @State private var isfixChargerPresented = false
   
   var body: some View {
     ZStack{
@@ -238,13 +238,16 @@ struct myGreeon: View {
                 })
                 Spacer().frame(height: 30)
                 Button(action: {
-                  // 버튼 선택시
+                  isfixChargerPresented.toggle()
                   HapticManager.instance.impact(style: .rigid)
                 }) {
                   Text("고장신고")
                     .font(.custom("SUITE-Medium", size: 16))
                     .foregroundColor(Color(hex: 0x545860))
                 }
+                .fullScreenCover(isPresented: $isfixChargerPresented, content: {
+                  fixCharger()
+                })
                 Spacer().frame(height: 30)
                 Button(action: {
                   // 버튼 선택시

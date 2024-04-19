@@ -30,7 +30,7 @@ class InquiryListViewModel: ObservableObject {
   }
   
   func attachImage(image: UIImage, name: String) {
-    attachedImages.append(image) // 이미지를 배열에 추가
+    attachedImages.append(image)
   }
   
   func fetchInquiry() -> AnyPublisher<[InquiryList], Never> {

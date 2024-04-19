@@ -106,7 +106,7 @@ struct chargerCodeInput: View {
     .alert(isPresented: $showAlert) {
       HapticManager.instance.notification(type: .error)
       return Alert(
-      title: Text("입력 오류"), message: Text(alertMessage), dismissButton: .default(Text("확인")))
+      title: Text("입력 오류"), message: Text(alertMessage), dismissButton: .cancel(Text("확인")))
     }
   }
   

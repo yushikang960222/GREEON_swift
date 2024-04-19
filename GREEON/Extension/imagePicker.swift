@@ -11,7 +11,7 @@ import SwiftUI
 struct ImagePicker: UIViewControllerRepresentable {
   var sourceType: UIImagePickerController.SourceType = .photoLibrary
   
-  @Binding var attachedImages: [AttachedImageWrapper]  // 변경
+  @Binding var attachedImages: [AttachedImageWrapper]
   @Environment(\.presentationMode) private var presentationMode
   var completionHandler: ((UIImage?) -> Void)?
   

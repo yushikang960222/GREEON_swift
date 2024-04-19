@@ -126,7 +126,7 @@ struct noticeAndfaq: View {
   @State private var selCategory: Category = .notice // 기본 선택 카테고리
   @State private var notices: [String] = []
   @State private var faqs: [String] = []
-  @ObservedObject var viewModel = noticeAndFaqViewModel() // @ObservedObject로 변경
+  @ObservedObject var viewModel = noticeAndFaqViewModel()
   @State private var isDetailPresented = false // 단일 세부 사항 표시
   @State private var selectedItem: String = "" // 선택된 항목
   

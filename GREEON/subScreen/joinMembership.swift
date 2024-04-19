@@ -424,7 +424,7 @@ struct WebView: UIViewRepresentable {
   }
   
   func updateUIView(_ uiView: WKWebView, context: Context) {
-    let url = URL(string: "https://www.google.com") // 카카오주소검색 페이지로 연결
+    let url = URL(string: "https://kasroid.github.io/Kakao-Postcode/") // 카카오주소검색 페이지로 연결
     let request = URLRequest(url: url!)
     uiView.load(request)
   }
@@ -519,7 +519,8 @@ struct joinComplete: View {
             }
           }
           .fullScreenCover(isPresented: $mainViewPresented, content: {
-            Home()
+            MainViewControllerWrapper()
+              .edgesIgnoringSafeArea(.all)
           })
           Spacer().frame(width: 14)
         }

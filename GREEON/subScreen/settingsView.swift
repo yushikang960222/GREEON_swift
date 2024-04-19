@@ -58,7 +58,7 @@ struct settingsView: View {
           Spacer().frame(height: 30)
           Toggle("이벤트 및 혜택 알림", isOn: $switchPushMarketingToggle)
             .font(.custom("SUITE-Regular", size: 16))
-            .toggleStyle(SwitchToggleStyle(tint: Color(hex: 0x0069cb)))
+            .toggleStyle(SwitchToggleStyle(tint: Color(hex: 0x00ab84)))
           Spacer().frame(height: 40)
           Text("로그인")
             .font(.custom("SUITE-ExtraBold", size: 20))
