@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 70 70">
+    <g data-name="Group 832">
+        <g data-name="Group 831">
+            <circle data-name="Ellipse 30" cx="35" cy="35" r="35" style="fill:#fff"/>
+        </g>
+        <g data-name="Group 536">
+            <g data-name="Group 400">
+                <circle data-name="Ellipse 14" cx="35" cy="35" r="35" style="fill:rgba(239,51,70,.8)"/>
+            </g>
+            <path d="M20 27.739a1.4 1.4 0 1 0-.953-.408 1.306 1.306 0 0 0 .953.408zm-1.167-5.6h2.333V11.911h-2.333zM14.167 34 6 25.833V14.167L14.167 6h11.666L34 14.167v11.666L25.833 34z" transform="translate(15 15)" style="fill:#fff"/>
+        </g>
+    </g>
+</svg>

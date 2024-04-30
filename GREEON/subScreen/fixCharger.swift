@@ -1,14 +1,123 @@
 //
-//  fixCharger.swift
+//  fixcharger.swift
 //  GREEON
 //
 //  Created by Yushi Kang on 4/18/24.
 //
 
 import SwiftUI
+import Combine
 
-struct fixCharger: View {
+class FixChargerListViewModel: ObservableObject {
+  @Published var fixChargerLists: [FixChargerList] = []
+  @Published var isDataLoaded: Bool = false
+  @Published var attachedImages: [UIImage] = []
+  @Published var showAlert: Bool = false
+  @Published var EmptyAlert: Bool = false
+  private var cancellables: Set<AnyCancellable> = []
+  
+  init() {
+    fetchData()
+  }
+  func fetchData() {
+    fetchFixCharger()
+      .sink { [weak self] fixChargerLists in
+        self?.fixChargerLists = fixChargerLists
+        self?.isDataLoaded = true
+      }
+      .store(in: &cancellables)
+  }
+  
+  func attachImage(image: UIImage, name: String) {
+    attachedImages.append(image)
+  }
+  
+  func fetchFixCharger() -> AnyPublisher<[FixChargerList], Never> {
+    return Future<[FixChargerList], Never> { promise in
+      DispatchQueue.main.asyncAfter(deadline: .now() + 0) {
+        let fixChargerLists = [
+          FixChargerList(title: "고장신고내역", content: "내용내용 1"),
+          FixChargerList(title: "고장났어욘", content: "내용내용 2"),
+          FixChargerList(title: "충전기가 고장났어효", content: "내용내용 3")
+        ]
+        promise(.success(fixChargerLists))
+      }
+    }
+    .eraseToAnyPublisher()
+  }
+  
+  func submitFixCharger(title: String, content: String, attachedImages: [AttachedImageWrapper], showAlert: Bool, resetContent: () -> Void) {
+    guard !title.isEmpty, !content.isEmpty else {
+      EmptyAlert = true
+      return
+    }
+    
+    let newFixCharger = FixChargerList(title: title, content: content)
+    self.fixChargerLists.append(newFixCharger)
+    for attachedImage in attachedImages {
+      self.attachImage(image: attachedImage.image, name: attachedImage.imageName)
+    }
+    print("Setting showAlert to \(showAlert)")
+    resetContent()
+    self.showAlert = true
+  }
+}
+
+struct FixChargerAttachedImage {
+  let image: UIImage
+  let imageName: String
+}
+
+struct FixChargerList: Identifiable {
+  var id = UUID()
+  var title: String
+  var content: String
+}
+
+struct FixCharger: View {
   @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+  @State private var fixTitle: String = ""
+  @State private var fixText: String = ""
+  @State private var fixChargerCode: String = ""
+  @State private var isEditing: Bool = false
+  @State private var selCategory: Category = .fixCharger
+  @ObservedObject var viewModel = FixChargerListViewModel()
+  @State private var selectedItem: String = ""
+  @State private var isDetailPresented = false
+  @State private var inquiryList: [String] = []
+  @State private var openCamera = false
+  @State private var openPhoto = false
+  @State private var openDocument = false
+  @State private var selImage: UIImage?
+  @State private var capImage: UIImage?
+  @State private var EmptyAlert = false
+  @State private var showAlert = false
+  @State private var fixattachedImages: [AttachedImageWrapper] = []
+  @State private var selChargerBrandOption: String = "운영사 선택"
+  private let options = ["그리온", "이지차저", "헬로플러그인", "한국전력공사", "휴맥스EV","현대 E-pit", "Sk일렉링크", "파워큐브코리아", "이브이시스", "현대엔지니어링", "이카플러그", "엘에스이링크", "씨어스", "GS차지비", "한국전자금융", "채비", "아마노코리아", "소프트베리", "LG유플러스", "파킹클라우드", "매니지온", "딜라이브", "쿨사인", "서울씨엔지", "이엘일렉트릭", "웰바이오텍EVC", "크로커스", "E1", "타디스테크놀로지", "이엘일렉트릭", "스칼라데이터", "아이온커뮤니케이션즈", "소프트베리", "플러그링크", "엘쓰리일렉트릭파워", "펌프킨", "에버온", "캐스트프로", "신세계아이앤씨", "이카플러그", "한국전기차인프라기술", "클린일렉스", "브라이트에너지파트너스", "아이마켓코리아", "대성콘텍"] // 추후 api 연결 필수
+  
+  let maxLength = 3000
+  
+  enum Category {
+    case fixCharger
+    case fixChargerList
+  }
+  
+  func submitFixCharger() {
+    if fixTitle.isEmpty || fixText.isEmpty {
+      EmptyAlert = true
+      return
+    }
+    viewModel.submitFixCharger(title: fixTitle,
+                            content: fixText,
+                            attachedImages: fixattachedImages,
+                            showAlert: true,
+                            resetContent: {
+      fixTitle = ""
+      fixText = ""
+      fixattachedImages.removeAll()
+    })
+  }
   
   var body: some View {
     VStack(alignment: .leading) {
@@ -34,14 +143,333 @@ struct fixCharger: View {
     }
     .background(Color.white)
     .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 5)
-    VStack{
-      Spacer().frame(height: 30)
-      
-      Spacer()
+    VStack {
+      Spacer().frame(height: 20)
+      HStack{
+        Spacer().frame(width: 14)
+        Picker("Category", selection: $selCategory) {
+          Text("고장신고접수").tag(Category.fixCharger)
+          Text("고장신고내역").tag(Category.fixChargerList)
+        }
+        Spacer().frame(width: 14)
+      }
+      .pickerStyle(SegmentedPickerStyle())
+      ScrollView {
+        HStack{
+          Spacer().frame(width: 14)
+          VStack{
+            Spacer().frame(height: 30)
+            switch selCategory {
+              case .fixCharger:
+                VStack(alignment: .leading) {
+                  HStack{
+                    Text("충전기 번호")
+                      .font(.custom("SUITE-Regular", size: 16))
+                      .foregroundColor(Color(hex: 0x545860))
+                    Spacer().frame(width: 20)
+                    TextField("충전기 번호", text: $fixChargerCode)
+                      .keyboardType(.numberPad)
+                      .textFieldStyle(.roundedBorder)
+                      .multilineTextAlignment(.leading)
+                      .font(.custom("SUITE-Regular", size: 16))
+                      .foregroundColor(Color(hex: 0x545860))
+                      .background(Color(hex: 0xf9f9f9))
+                  }
+                  Spacer().frame(height: 25)
+                  Menu {
+                    ForEach(options, id: \.self) { option in
+                      Button(action: {
+                        selChargerBrandOption = option
+                      }) {
+                        Label(option, systemImage: option)
+                      }
+                      .frame(height: 50)
+                    }
+                  }
+                label: {
+                  VStack{
+                    HStack {
+                      Spacer().frame(width: 10)
+                      Text(selChargerBrandOption)
+                        .font(.custom("SUITE-Regular", size: 16))
+                        .foregroundColor(Color(hex: 0x545860))
+                      Spacer()
+                      Image(systemName: "chevron.down")
+                        .imageScale(.small)
+                      Spacer().frame(width: 10)
+                    }
+                    Divider()
+                  }
+                }
+                  Spacer().frame(height: 20)
+                  TextField("제목을 입력해주세요.", text: $fixTitle)
+                    .textFieldStyle(.roundedBorder)
+                    .multilineTextAlignment(.leading)
+                    .font(.custom("SUITE-Regular", size: 16))
+                    .foregroundColor(Color(hex: 0x545860))
+                    .background(Color(hex: 0xf9f9f9))
+                  Spacer().frame(height: 20)
+                  ZStack(alignment: .topLeading) {
+                    let placeholder: String = "내용을 입력해주세요."
+                    TextEditor(text: $fixText)
+                      .font(.custom("SUITE-Regular", size: 16))
+                      .frame(height: 300)
+                      .foregroundColor(Color(hex: 0x545860))
+                      .lineSpacing(10)
+                      .background(Color(hex: 0xf9f9f9))
+                      .cornerRadius(10)
+                      .padding(.top, 5)
+                      .padding(.horizontal, 5)
+                      .padding(.bottom, 5)
+                      .onReceive(fixText.publisher.collect()) { newText in
+                        if newText.count > maxLength {
+                          self.fixText = String(newText.prefix(maxLength))
+                        }
+                      }
+                    RoundedRectangle(cornerRadius: 10)
+                      .stroke(Color(hex: 0xf0f0f0), lineWidth: 1)
+                    if fixText.isEmpty{
+                      Text(placeholder)
+                        .font(.custom("SUITE-Regular", size: 16))
+                        .foregroundColor(Color(hex: 0xcdcdcd))
+                        .padding(.top, 10)
+                        .padding(.horizontal, 7)
+                    }
+                  }
+                  HStack{
+                    Spacer()
+                    Text("\(fixText.count) / 3000")
+                      .font(.custom("SUITE-Regular", size: 14))
+                      .foregroundColor(Color(hex: 0x545860))
+                    Spacer().frame(width: 14)
+                  }
+                  Spacer().frame(height: 30)
+                  HStack{
+                    Text("첨부파일")
+                      .font(.custom("SUITE-Regular", size: 16))
+                      .foregroundColor(Color(hex: 0x545860))
+                    Spacer().frame(width: 20)
+                    Menu {
+                      Button {
+                        self.openCamera = true
+                        HapticManager.instance.impact(style: .rigid)
+                      } label: {
+                        HStack {
+                          Image(systemName: "camera.fill")
+                          Text("사진촬영")
+                        }
+                      }
+                      Menu("사진 가져오기") {
+                        Button(action: {
+                          self.openPhoto = true
+                          HapticManager.instance.impact(style: .rigid)
+                        }) {
+                          HStack{
+                            Image(systemName: "photo")
+                            Text("사진 추가")
+                          }
+                        }
+                        Button(action:{
+                          self.openDocument = true
+                          HapticManager.instance.impact(style: .rigid)
+                        }) {
+                          HStack{
+                            Image(systemName: "folder")
+                            Text("파일에서 가져오기")
+                          }
+                        }
+                      }
+                    } label: {
+                      HStack{
+                        Image("image")
+                        Text("사진첨부")
+                          .font(.custom("SUITE-Bold", size: 16))
+                      }
+                      .foregroundColor(.white)
+                      .frame(width: 110, height: 36)
+                      .background(Color(hex: 0x00ab84))
+                      .cornerRadius(5)
+                    }
+                    Spacer()
+                  }
+                  Spacer().frame(height: 40)
+                  VStack{
+                    HStack{
+                      Text("첨부파일 리스트")
+                        .font(.custom("SUITE-Regular", size: 16))
+                        .foregroundColor(Color(hex: 0x545860))
+                      Spacer()
+                    }
+                    ScrollView(.horizontal, showsIndicators: false) {
+                      HStack{
+                        Spacer().frame(width: 10)
+                        ForEach(fixattachedImages) { attachedImage in
+                          VStack(spacing: 3){
+                            Image(uiImage: attachedImage.image)
+                              .resizable()
+                              .aspectRatio(contentMode: .fit)
+                              .frame(width: 50, height: 50)
+                            Button(action: {
+                              fixattachedImages.removeAll(where: { $0.id == attachedImage.id })
+                              HapticManager.instance.notification(type: .error)
+                            }) {
+                              HStack{
+                                Spacer()
+                                Image(systemName: "trash.fill")
+                                  .foregroundColor(Color(hex: 0xef3346))
+                                  .frame(width: 5, height: 5)
+                                Spacer().frame(width: 10)
+                                Text("삭제")
+                                  .font(.custom("SUITE-Bold", size: 14))
+                                  .foregroundColor(Color(hex: 0xef3346))
+                                Spacer(minLength: 0)
+                              }
+                            }
+                          }
+                        }
+                        Spacer().frame(width: 10)
+                      }
+                    }
+                  }
+                  Spacer().frame(height: 70)
+                  HStack{
+                    Spacer()
+                    Button(action: {
+                      submitFixCharger()
+                      HapticManager.instance.impact(style: .rigid)
+                    }) {
+                      HStack {
+                        Text("등록하기")
+                          .font(.custom("SUITE-Regular", size: 16))
+                          .foregroundColor(Color(hex: 0x545860))
+                        Image("report")
+                      }
+                    }
+                    .alert(isPresented: $viewModel.EmptyAlert) {
+                      HapticManager.instance.notification(type: .error)
+                      return Alert(title: Text("접수 실패"), message: Text("\n제목과 내용을 모두 입력해주세요."), dismissButton: .cancel(Text("확인")))
+                    }
+                    .alert(isPresented: $viewModel.showAlert) {
+                      HapticManager.instance.notification(type: .error)
+                      return Alert(title: Text("접수 완료"), message: Text("\n1:1문의가 성공적으로 접수되었습니다.\n빠른 시일 내에 답변드리겠습니다."), dismissButton: .cancel(Text("확인")))
+                    }
+                  }
+                  Spacer().frame(height: 20)
+                }
+              case .fixChargerList:
+                ForEach(viewModel.fixChargerLists) { fixChargerList in
+                  HStack{
+                    Spacer().frame(width: 10)
+                    Button(action: {
+                      self.selectedItem = fixChargerList.title
+                      self.isDetailPresented = true
+                      HapticManager.instance.impact(style: .rigid)
+                    }) {
+                      VStack{
+                        HStack{
+                          Text(fixChargerList.title)
+                            .font(.custom("SUITE-Regular", size: 16))
+                            .foregroundColor(Color(hex: 0x545860))
+                          Spacer()
+                          Image("arrowRightAlt")
+                        }
+                        Spacer().frame(height: 50)
+                      }
+                    }
+                    Spacer().frame(width: 20)
+                  }
+                }
+            }
+            Spacer().frame(height: 10)
+          }
+          Spacer().frame(width: 14)
+        }
+      }
+    }
+    .fullScreenCover(isPresented: $isDetailPresented) {
+      if selCategory == .fixChargerList {
+        FixChargerDetailView(fixChargerList: viewModel.fixChargerLists.first(where: { $0.title == selectedItem }) ?? FixChargerList(title: "", content: ""))
+      }
+    }
+    .fullScreenCover(isPresented: $openCamera) {
+      CameraCaptureView(attachedImages: self.$fixattachedImages)
+        .ignoresSafeArea(.all)
+    }
+    .fullScreenCover(isPresented: $openDocument) {
+      DocumentPickerView(attachedImages: self.$fixattachedImages)
+    }
+    .fullScreenCover(isPresented: $openPhoto) {
+      ImagePicker(attachedImages: self.$fixattachedImages)
+    }
+  }
+}
+
+struct FixChargerDetailView: View {
+  @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+  @State private var showAlert = false
+  let fixChargerList: FixChargerList
+  
+  var body: some View {
+    ZStack{
+      VStack{
+        VStack(alignment: .leading) {
+          Spacer().frame(height: 15)
+          HStack{
+            Spacer().frame(width: 14)
+            Button(action: {
+              presentationMode.wrappedValue.dismiss()
+              HapticManager.instance.notification(type: .success)
+            }) {
+              Image("back")
+            }
+            Spacer()
+            Button(action: {
+              showAlert = true
+              HapticManager.instance.impact(style: .rigid)
+            }) {
+              HStack(spacing: 3){
+                Text("삭제")
+                  .font(.custom("SUITE-Regular", size: 16))
+                  .foregroundColor(Color(hex: 0xef3346))
+                Image("delete")
+              }
+            }
+            .alert(isPresented: $showAlert) {
+              HapticManager.instance.notification(type: .warning)
+              return Alert(title: Text("1:1문의 삭제"), message: Text("\n삭제 후 복원이 불가능합니다.\n정말 삭제 하시겠습니까?"), primaryButton: .destructive(Text("삭제")), secondaryButton: .cancel(Text("취소"))
+              )
+            }
+            Spacer().frame(width: 14)
+          }
+          Spacer().frame(height: 23)
+          HStack{
+            Spacer().frame(width: 14)
+            Text(fixChargerList.title)
+              .font(.custom("SUITE-Bold", size: 24))
+            Spacer()
+          }
+          Spacer().frame(height: 10)
+        }
+        .background(Color.white)
+        .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 5)
+        ScrollView(showsIndicators: false){
+          VStack{
+            Spacer().frame(height: 30)
+            HStack{
+              Spacer().frame(width: 14)
+              Text(fixChargerList.content)
+                .font(.custom("SUITE-Regular", size: 16))
+                .foregroundColor(Color(hex: 0x545860))
+              Spacer()
+            }
+          }
+        }
+        Spacer()
+      }
     }
   }
 }
 
 #Preview {
-  fixCharger()
+  FixCharger()
 }

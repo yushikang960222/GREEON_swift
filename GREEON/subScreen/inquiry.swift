@@ -48,9 +48,9 @@ class InquiryListViewModel: ObservableObject {
   }
   func submitInquiry(title: String, content: String, attachedImages: [AttachedImageWrapper], showAlert: Bool, resetContent: () -> Void) {
     guard !title.isEmpty, !content.isEmpty else {
-            EmptyAlert = true
-            return
-        }
+      EmptyAlert = true
+      return
+    }
     
     let newInquiry = InquiryList(title: title, content: content)
     self.inquiryLists.append(newInquiry)
@@ -97,7 +97,7 @@ struct inquiry: View {
   @State private var capImage: UIImage?
   @State private var EmptyAlert = false
   @State private var showAlert = false
-  @State private var attachedImages: [AttachedImageWrapper] = []
+  @State private var inquiryattachedImages: [AttachedImageWrapper] = []
   
   let maxLength = 3000
   
@@ -113,12 +113,12 @@ struct inquiry: View {
     }
     viewModel.submitInquiry(title: inquiryTitle,
                             content: inquiryText,
-                            attachedImages: attachedImages,
+                            attachedImages: inquiryattachedImages,
                             showAlert: true,
                             resetContent: {
       inquiryTitle = ""
       inquiryText = ""
-      attachedImages.removeAll()
+      inquiryattachedImages.removeAll()
     })
   }
   
@@ -246,6 +246,7 @@ struct inquiry: View {
                       HStack{
                         Image("image")
                         Text("사진첨부")
+                          .font(.custom("SUITE-Bold", size: 16))
                       }
                       .foregroundColor(.white)
                       .frame(width: 110, height: 36)
@@ -265,14 +266,14 @@ struct inquiry: View {
                     ScrollView(.horizontal, showsIndicators: false) {
                       HStack{
                         Spacer().frame(width: 10)
-                        ForEach(attachedImages) { attachedImage in
+                        ForEach(inquiryattachedImages) { attachedImage in
                           VStack(spacing: 3){
                             Image(uiImage: attachedImage.image)
                               .resizable()
                               .aspectRatio(contentMode: .fit)
                               .frame(width: 50, height: 50)
                             Button(action: {
-                              attachedImages.removeAll(where: { $0.id == attachedImage.id })
+                              inquiryattachedImages.removeAll(where: { $0.id == attachedImage.id })
                               HapticManager.instance.notification(type: .error)
                             }) {
                               HStack{
@@ -300,11 +301,11 @@ struct inquiry: View {
                       submitInquiry()
                       HapticManager.instance.impact(style: .rigid)
                     }) {
-                        HStack {
-                            Text("등록")
-                                .font(.custom("SUITE-Regular", size: 16))
-                            Image("apply")
-                        }
+                      HStack {
+                        Text("등록")
+                          .font(.custom("SUITE-Regular", size: 16))
+                        Image("apply")
+                      }
                     }
                     .alert(isPresented: $viewModel.EmptyAlert) {
                       HapticManager.instance.notification(type: .error)
@@ -321,7 +322,7 @@ struct inquiry: View {
               case .inquiryList:
                 ForEach(viewModel.inquiryLists) { inquiryList in
                   HStack{
-                      Spacer().frame(width: 10)
+                    Spacer().frame(width: 10)
                     Button(action: {
                       self.selectedItem = inquiryList.title
                       self.isDetailPresented = true
@@ -354,14 +355,14 @@ struct inquiry: View {
       }
     }
     .fullScreenCover(isPresented: $openCamera) {
-      CameraCaptureView(attachedImages: self.$attachedImages)
+      CameraCaptureView(attachedImages: self.$inquiryattachedImages)
         .ignoresSafeArea(.all)
     }
     .fullScreenCover(isPresented: $openDocument) {
-      DocumentPickerView(attachedImages: self.$attachedImages)
+      DocumentPickerView(attachedImages: self.$inquiryattachedImages)
     }
     .fullScreenCover(isPresented: $openPhoto) {
-      ImagePicker(attachedImages: self.$attachedImages)
+      ImagePicker(attachedImages: self.$inquiryattachedImages)
     }
   }
 }

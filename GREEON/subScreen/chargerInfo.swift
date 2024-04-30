@@ -157,7 +157,7 @@ struct chargerInfo: View {
                       }) {
                         HStack{
                           Image("fork")
-                          Text("길찾기") // 버튼에 표시될 텍스트
+                          Text("길찾기")
                             .font(.custom("SUITE-Bold", size: 16))
                         }
                         .foregroundColor(Color.white)
@@ -173,7 +173,7 @@ struct chargerInfo: View {
               .fullScreenCover(isPresented: $ischargerSelectViewPresented, content: {
                 chargerSelectView()
               })
-            }// 버튼 하나
+            }
           }
           
           // vstack 마지막
@@ -195,6 +195,5 @@ class chargerInfoController: UIHostingController<chargerInfo> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // 추가적인 설정이 필요하다면 여기에서 수행
     }
 }

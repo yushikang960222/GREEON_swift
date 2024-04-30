@@ -184,7 +184,10 @@ struct loginView: View {
     .alert(isPresented: $showAlert) {
       HapticManager.instance.notification(type: .error)
       return Alert(
-      title: Text("로그인 오류"), message: Text(alertMessage), dismissButton: .cancel(Text("확인")))
+      title: Text("로그인 오류"),
+      message: Text(alertMessage),
+      dismissButton: .cancel(Text("확인"))
+      )
     }
     .fullScreenCover(isPresented: $isMainViewPresented) {
       MainViewControllerWrapper()

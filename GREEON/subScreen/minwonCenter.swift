@@ -24,7 +24,6 @@ struct WebViewer: UIViewRepresentable {
     }
   }
   
-  // 프로토콜 makeCoordinator
   func makeCoordinator() -> Coordinator {
     Coordinator(self)
   }

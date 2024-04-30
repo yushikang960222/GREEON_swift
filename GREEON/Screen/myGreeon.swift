@@ -246,7 +246,7 @@ struct myGreeon: View {
                     .foregroundColor(Color(hex: 0x545860))
                 }
                 .fullScreenCover(isPresented: $isfixChargerPresented, content: {
-                  fixCharger()
+                  FixCharger()
                 })
                 Spacer().frame(height: 30)
                 Button(action: {

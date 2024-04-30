@@ -299,7 +299,6 @@ struct Home: View {
   Home()
 }
 
-// SwiftUI를 UIKit으로 호스팅하기 위한 UIViewController
 class HomeViewController: UIHostingController<Home> {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder, rootView: Home())

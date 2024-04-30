@@ -265,7 +265,7 @@ struct chargerSelectView: View {
                       HStack {
                         Image("addGroup")
                         
-                        Text("멤버등록") // 버튼에 표시될 텍스트
+                        Text("멤버등록")
                           .font(.custom("SUITE-Bold", size: 16))
                           .foregroundColor(Color.white)
                       }
@@ -282,7 +282,7 @@ struct chargerSelectView: View {
                       HStack {
                         Image("fork")
                         
-                        Text("길찾기") // 버튼에 표시될 텍스트
+                        Text("길찾기")
                           .font(.custom("SUITE-Bold", size: 16))
                           .foregroundColor(Color.white)
                       }
@@ -309,7 +309,6 @@ struct chargerSelectView: View {
   
   var backButton: some View {
     Button(action: {
-      // 이전 화면으로 돌아가는 코드
       presentationMode.wrappedValue.dismiss()
     }) {
       HStack(spacing: 3) {

@@ -58,7 +58,6 @@ class ValidationViewModel: ObservableObject {
     
     // 서버 API를 호출하여 이메일 중복 여부 확인
     
-    // 3초 후에 확인완료를 위해 디스패치큐 적용
     DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
       self.isCheckingDuplicate = false
       self.emailValidationResult = " 🎉 사용가능한 이메일입니다."
@@ -110,9 +109,7 @@ struct joinMembership: View {
   @State private var alertTitle: String = ""
   @State private var alertMessage: String = ""
   @State private var joinCompleteViewPresented = false
-  
-  //  @State private var mapApiData: String =
-  
+    
   var body: some View {
     ZStack {
       VStack(alignment: .leading) {
@@ -283,7 +280,7 @@ struct joinMembership: View {
               print("주소찾기 버튼")
             }) {
               HStack{
-                Text("주소 찾기") // 버튼에 표시될 텍스트
+                Text("주소 찾기")
                   .font(.custom("SUITE-Bold", size: 16))
               }
               .foregroundColor(Color.white)

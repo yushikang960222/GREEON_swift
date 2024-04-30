@@ -9,10 +9,7 @@ import UIKit
 import CoreLocation
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
-  
-  var name = ("chabiee", "yeongmin")
-  
-  // 로케이션매니저 초기설정으로 위치 권한 확인
+    
   let locationManager = CLLocationManager()
   
   @IBOutlet var imgBtn: UIImageView!
@@ -39,7 +36,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
   }
   
-  // 위치 권한이 거부되었을 경우 알럿을 띄우기 위한 기본 세팅
   func isLocationServiceEnabled(completion: @escaping (Bool) -> Void) {
     DispatchQueue.global().async {
       let isEnabled = CLLocationManager.locationServicesEnabled() &&
@@ -51,8 +47,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
   }
   
-  
-  // 위치서비스 권한이 허용되어 있는지 확인
   func LocationAlertNeed() {
     DispatchQueue.global(qos: .background).async {
       if CLLocationManager.locationServicesEnabled() {
@@ -84,23 +78,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
   }
   
-  // 이미지 터치 시 메인으로 이동
   @objc func imageTap(tapGestureRecognizer: UITapGestureRecognizer) {
     
-    // 위치 서비스가 허용되어 있으면 MainViewController로 이동
     checkLocationServiceAndNavigate()
   }
   
-  // 텍스트 터치 시 메인으로 이동
   @objc func txtTap(tapGestureRecognizer: UITapGestureRecognizer) {
     
-    // 위치 서비스가 허용되어 있으면 MainViewController로 이동
     checkLocationServiceAndNavigate()
   }
   
-  // 위치 서비스 권한 확인 후 이동 처리
   func checkLocationServiceAndNavigate() {
-    // 위치 서비스 권한 확인 후 처리
     isLocationServiceEnabled { isEnabled in
       if isEnabled {
         self.navigateToMainViewController()
@@ -110,7 +98,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
   }
   
-  // 위치 서비스가 허용되어 있으면 MainViewController로 이동
   func navigateToMainViewController() {
     guard let nextView = self.storyboard?.instantiateViewController(identifier: "LoginViewController") else {
       return
@@ -120,7 +107,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     self.present(nextView, animated: true, completion: nil)
   }
   
-  // 앱의 상태를 저장 (동작 안하는것같은데)
   func saveAppState() {
     UserDefaults.standard.set(true, forKey: "LocationPermissionGranted")
   }
@@ -136,23 +122,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     super.viewDidLoad()
     
     locationManager.delegate = self
-    
-    // 이미 위치 권한이 허용된 경우 MainViewController로 이동 (이것도 동작 안하는것같은데)
     restoreAppState()
-    
-    // 위치 서비스가 허용되지 않은 경우 위치 권한 요청
     isLocationServiceEnabled { isEnabled in
       if !isEnabled {
         self.requestLocationPermission()
       }
     }
     
-    // 이미지 터치 제스처 등록
     let tapImageView = UITapGestureRecognizer(target: self, action: #selector(imageTap(tapGestureRecognizer:)))
     imgBtn.isUserInteractionEnabled = true
     imgBtn.addGestureRecognizer(tapImageView)
     
-    // 텍스트 터치 제스처 등록
     let tapTxtView = UITapGestureRecognizer(target: self, action: #selector(txtTap(tapGestureRecognizer:)))
     txtBtn.isUserInteractionEnabled = true
     txtBtn.addGestureRecognizer(tapTxtView)
@@ -160,7 +140,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
   }
   
-  // 위치 서비스가 허용되어 있는지 동기적으로 확인
   func isLocationServiceEnabledSync(completion: @escaping (Bool) -> Void) {
     DispatchQueue.global().async {
       let isEnabled = CLLocationManager.locationServicesEnabled() &&
@@ -172,7 +151,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
   }
   
-  // 권한 인식 및 권한 거부 시 알럿 띄우기
   func requestLocationPermission() {
     DispatchQueue.global(qos: .background).async {
       if CLLocationManager.locationServicesEnabled() {
@@ -210,7 +188,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     present(alert, animated: true, completion: nil)
   }
   
-  // 권한 허용할때까지 계속 알럿을 띄우게 함
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     LocationAlertNeed()

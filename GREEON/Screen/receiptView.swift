@@ -28,7 +28,6 @@ struct receiptView: View {
   ]
   
   var body: some View {
-    ZStack{
       VStack(alignment: .leading) {
         Spacer().frame(height: 60)
         HStack{
@@ -39,7 +38,8 @@ struct receiptView: View {
         }
         Spacer().frame(height: 10)
       }
-    }
+      .background(Color.white)
+      .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 5)
     HStack{
       Spacer().frame(width: 14)
       VStack(alignment: .leading){
@@ -58,13 +58,15 @@ struct receiptView: View {
           Spacer().frame(width: 0)
           DatePicker(selection: $searchStartDate, in: ...Date(), displayedComponents: .date) {
           }
-          Spacer().frame(maxWidth: .infinity) // 프레임 치수가 정확하지 않은것 같다고 떠도 상관 없음 (UI상 보여주는거에 대해 문제 없음)
+          .environment(\.locale, Locale(identifier: "Ko-KR"))
+//          Spacer().frame(maxWidth: .infinity) // 프레임 치수가 정확하지 않은것 같다고 떠도 상관 없음 (UI상 보여주는거에 대해 문제 없음)
           Text("종료날짜")
             .font(.custom("SUITE-Bold", size: 14))
             .foregroundColor(Color(hex: 0x0069cb))
           Spacer().frame(width: 0)
-          DatePicker(selection: $searchEndDate, in: ...Date(), displayedComponents: .date) {
+          DatePicker(selection: $searchEndDate, in: ...Date(), displayedComponents: .date){
           }
+          .environment(\.locale, Locale(identifier: "Ko-KR"))
           Spacer().frame(width: 14)
         }
         Spacer().frame(height: 20)
@@ -74,8 +76,9 @@ struct receiptView: View {
         Spacer().frame(height: 20)
       }
     }
-    .background(Color.white)
-    .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 5)
+    Divider()
+      .frame(width: 600)
+      .foregroundColor(Color(hex: 0x545860))
     ScrollView{
       VStack{
         ForEach(chargeInfos, id: \.date) { chargeInfo in

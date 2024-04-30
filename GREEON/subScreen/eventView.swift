@@ -42,7 +42,6 @@ struct eventView: View {
   @ObservedObject var viewModel = EventViewModel()
   
   init() {
-    // 위에서 fetchdata를 가져와서 초기화 후 사용
     viewModel.fetchData()
   }
   
